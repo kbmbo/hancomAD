@@ -1,0 +1,155 @@
+.modalMainTitle{
+  padding-bottom: 7px;
+  border-bottom: 1px solid #dadada;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+#wrap.popup{
+  padding:15px 20px;
+  background-color: #fff;
+}
+.modal{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 500;
+  @include WH(100%,100%);
+  padding-top: 3%;
+  overflow: auto;
+  background-color: rgba(86, 98, 109, .5);
+  .modalContent{
+    padding: 20px;
+    margin:auto;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    &.scroll{
+      @include WH(85%,95%);
+      padding:15px 5px 0 20px;
+      overflow: hidden;
+      > div{
+        @include WH(100%,93%);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right:10px;
+      }
+    }
+    &.pop_admix_setting{
+      width: 300px;
+      margin-top: 150px;
+      ol li{
+        list-style:unset;
+        list-style-position:inside;
+        cursor: grab;
+        font-size: 16px;
+        font-weight: 500;
+        @include b-box(3px);
+        @include lineH(40px);
+        margin-top:10px;
+        padding:0 10px;
+        &:first-child{margin-top: 20px;}
+        &:active{cursor: grabbing;}
+      }
+    }
+    &.pop_exposure_ratio{
+      width: 500px;
+      margin-top: 200px;
+      p {
+        font-size: 20px;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 10px;
+        line-height: 60px;
+      }
+    }
+    &.pop_month_traffic{
+      width: 900px;
+      margin-top: 100px;
+      .chart,.txtBox{@include WH(50%,400px);float: left}
+      .txtBox{
+        padding:48px 0 0 10px;
+        dl{
+          margin-bottom: 15px;
+          dt{
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+          }
+          dd{font-size: 17px; line-height: 25px;}
+        }
+        p{color: $blue;font-size: 22px;font-weight: 600;}
+      }
+    }
+    &.pop_external_match{
+      width: 480px;
+      margin-top: 100px;
+      .optionBox3{
+        margin-top: 20px;
+        .conBox{
+          @include WH(100%,50px);
+          border-bottom: #dadada 1px solid;
+          &:first-child{border-top: #dadada 1px solid;}
+          h3{
+            line-height: 49px;
+            float: left;
+            margin-right: 20px;
+            background-color: $blue;
+            color: #fff;
+            padding: 0;
+            font-size: 16px;
+            text-align: center;
+            width: 35%;
+            border-bottom: #fff 1px solid;
+          }
+          .customSelect,input{margin: 9px 0;}
+        }
+      }
+    }
+    .modalSection{margin-top: 20px;}
+    .XBtn {
+      @include WH(30px,30px);
+      text-indent:-9999px;
+      background:url('../img/popup_Xbtn.png') no-repeat center center;
+      margin:0;border-radius:0;box-shadow:none;padding:0;
+      float: right;
+    }
+    section {
+      margin-bottom: 20px;
+      &:last-child{margin-bottom: 0;}
+    }
+    .modalFooter{
+      margin-top: 20px;
+      text-align: center;
+      .btn-box{height:32px;}
+      button{
+        margin: 0 5px;
+        float: unset;
+        &:first-child{background-color: #d0d0d0;}
+      }
+    }
+  }
+}
+.imgView{
+  position: fixed;
+  top: 0;
+  @include WH(100%,100%);
+  background-color: rgba(0,0,0, .6);
+  display: flex;
+  align-items: center;
+  > div{
+    background-color: #fff;
+    padding: 5px 30px 30px;
+    margin: 0 auto;
+    border-radius:5px;
+    max-height: 95%;
+    max-width: 95%;
+    > p > span{float: right; font-size: 25px; text-align: right;cursor: pointer; padding-left: 5px;}
+    img{
+      object-fit: contain;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}

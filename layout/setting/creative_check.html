@@ -1,0 +1,1057 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head>
+        <title>안랩애드 최고관리자</title>
+    <!--파비콘 공통:s-->
+    <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
+    <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
+    <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
+    <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
+    <!--파비콘 공통:e-->
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <meta name="viewport" content="width=1920">
+    <link href="/css/upload.css?20161121" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/admin_script.js?v=20210617150032"></script>
+    <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+    </script>
+    <script language="Javascript" src="/js/carendar.js"></script><link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script></head><body naver_screen_capture_injected="true"><div id="minical" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="background:buttonface; margin:5; padding:5;margin-top:2;border-top:1 solid buttonshadow;border-left: 1 solid buttonshadow;border-right: 1 solid buttonshadow;border-bottom:1 solid buttonshadow;width:170;display:none;position: absolute; z-index: 99"></div>
+    <script>
+        function f_logout(){
+            member_login.mode.value = "logout";
+            member_login.submit();
+        }
+
+        function f_logon(){
+            member_login.mode.value = "login";
+            member_login.submit();
+        }
+    </script>
+
+
+<script language="JavaScript" src="/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../js/common.js"></script>
+        <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../js/chart.js"></script>
+        <script type="text/javascript" src="../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../js/table.js"></script>
+        <script type="text/javascript" src="../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        if ( $("#st_date").length > 0 ) $('#st_date').helloCalendar({'selectBox':true});
+        if ( $("#en_date").length > 0 ) $('#en_date').helloCalendar({'selectBox':true});
+        //광고기간 수동 설정 2015-09-08 ohkwon 추가함. by 김윤희대리
+        if(document.getElementById("st_date")) document.getElementById("st_date").readOnly = false;
+        if(document.getElementById("en_date")) document.getElementById("en_date").readOnly = false;
+    });
+</script>
+
+<iframe name="ifr_login" src="/inc/ssnRetain.php" width="0" height="0" frameborder="0" scrolling="auto"></iframe>
+
+<form name="member_login" method="post" action="/ad/ifr_member.php" target="ifr_login">
+    <input type="hidden" name="mode" value="">
+</form>
+<!-- <div class="top_container">
+    <div class="ahnlab_logo" onclick="location.href='/v2/DashBoard.php' "></div>
+    <div class="admin_nav">
+        <ul>
+            <li class="btn_admin_01"><p>SSP_김진호(관리자)</p></li>
+            <li class="btn_admin_05"><a href="javascript:void(0);" onclick="combineLogin2('jhkimssp')"><p>매체센터</p></a></li>
+            <li class="btn_admin_02"><a href="javascript:void(0);" onclick="combineLogin('jhkimssp')"><p>광고주센터</p></a></li>
+            <li class="btn_admin_03"><a href="/ad/member_write.html?uid=jhkimssp"><p>정보수정</p></a></li>
+            <li class="btn_admin_04"><a href="javascript:f_logout()"><p>로그아웃</p></a></li>
+        </ul>
+    </div>
+    <div class="top_main">
+        <ul class="main_nav">
+                            <div class="sub-tab" data-high-seq="106">
+                                            <li class="manage_member">
+                            <a href="/ad/manage_member.html">
+                                <img src="/image/btn_menu01.png" width="30px;" alt="사용자관리">
+                                <div class="pointer_area">
+                                    <p>사용자관리</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="manage_report_media_day">
+                            <a href="/v2/daily_report/manage_report_media_day.php">
+                                <img src="/image/btn_menu02.png" width="30px;" alt="일자별통계">
+                                <div class="pointer_area">
+                                    <p>일자별통계</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="manage_report_mcode2">
+                            <a href="/v2/mcode_report/manage_report_mcode2.php">
+                                <img src="/image/btn_menu03.png" width="30px;" alt="캠페인통계">
+                                <div class="pointer_area">
+                                    <p>캠페인통계</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="manage_report_media">
+                            <a href="/v2/media_report/manage_report_media.php">
+                                <img src="/image/btn_menu04.png" width="30px;" alt="지면통계">
+                                <div class="pointer_area">
+                                    <p>지면통계</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="manage_report_media_day_admix">
+                            <a href="/v2/admix_report/manage_report_media_day_admix.php">
+                                <img src="/image/btn_menu05.png" width="30px;" alt="네트워크광고통계">
+                                <div class="pointer_area">
+                                    <p>네트워크광고통계</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="DailyReport">
+                            <a href="/v2/HouseReport/DailyReport.php">
+                                <img src="/image/btn_menu07.png" width="30px;" alt="하우스광고통계">
+                                <div class="pointer_area">
+                                    <p>하우스광고통계</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li style="opacity:1;" class="creative_check">
+                            <a href="/v2/setting/creative_check.php">
+                                <img src="/image/btn_menu09.png" width="30px;" alt="소재 검수">
+                                <div class="pointer_area">
+                                    <p>소재 검수</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="exposure_ratio">
+                            <a href="/v2/setting/exposure_ratio.php">
+                                <img src="/image/btn_menu08.png" width="30px;" alt="설정">
+                                <div class="pointer_area">
+                                    <p>설정</p>
+                                </div>
+                            </a>
+                        </li>
+                                            <li class="group_auth_management">
+                            <a href="/admin/auth/group_auth_management.php">
+                                <img src="/image/btn_menu06.png" width="30px;" alt="권한관리">
+                                <div class="pointer_area">
+                                    <p>권한관리</p>
+                                </div>
+                            </a>
+                        </li>
+                                                    </div>
+                    </ul>
+
+    </div>
+</div> -->
+<form name="combineLoginForm" method="post" action="" target="ifr_login_pro">
+    <input type="hidden" name="userid">
+    <input type="hidden" name="mode">
+    <input type="hidden" name="mode_val">
+    <input type="hidden" name="dmode">
+    <input type="hidden" name="state">
+</form>
+<script>
+    $(".top-menu-btn").click(function(){
+        var seq = $(this).attr("data-seq");
+        $(".sub-tab").hide();
+        $(".sub-tab[data-high-seq='"+seq+"']").show();
+    });
+
+    function combineLogin(userid){
+        combineLoginForm.userid.value = userid;
+        combineLoginForm.mode.value = "changemem";
+        combineLoginForm.mode_val.value = "";
+        combineLoginForm.action = "/ad/ifr_member.php";
+        combineLoginForm.target = "ifr_login_pro";
+        combineLoginForm.submit();
+    }
+    function combineLogin2(userid){
+        combineLoginForm.userid.value = userid;
+        combineLoginForm.mode.value = "changemem";
+        combineLoginForm.mode_val.value = "media";
+        combineLoginForm.action = "/ad/ifr_member.php";
+        combineLoginForm.target = "ifr_login_pro";
+        combineLoginForm.submit();
+    }
+</script>
+<iframe name="ifr_login_pro" src="about:blank" width="0" height="0" frameborder="0" scrolling="auto"></iframe>
+<!--상단메뉴 end-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-bottom: 30px;margin-top:80px;">
+    <tbody><tr>
+        <td style="padding:0px;background-color:#f4f4f4;">
+
+<script>
+    function submit_form(gb,st_date,en_date){
+        if(st_date){
+            frm.st_date.value = st_date;
+        }
+        if(en_date){
+            frm.en_date.value = en_date;
+        }
+        if(gb!=""){
+            frm.gb.value  = gb;
+        }
+        if(gb==""){
+            frm.gb.value  = "TOT";
+        }
+        frm.submit();
+    }
+    function submit_form_web(gb_web){
+       // frm.gb_web.value = gb_web;
+        frm.submit();
+    }
+
+    function submit_form_search_btn(gb,st_date,en_date,cate){
+        var tmpDate = $('#dateInput').val().split(' ~ ');
+
+        frm.st_date.value = tmpDate[0];
+        frm.en_date.value = tmpDate[1];
+
+        if (gb) {
+            frm.gb.value = gb;
+        }
+
+        frm.action = './DailyReport.php';
+        frm.target = '_self';
+        frm.submit();
+    }
+
+</script>
+
+<textarea>             SELECT
+                COUNT(CR.seq) AS totalcnt
+            FROM	dreamsearch.CREATIVE AS CR
+                LEFT
+                JOIN	dreamsearch.admember AS AD
+            ON 		CR.userid = AD.userid
+            WHERE	AD.USERID = 'jhkimssp'
+                
+            </textarea><textarea>             SELECT
+                CR.STATUS,
+                COUNT(CR.seq) AS cnt
+            FROM	dreamsearch.CREATIVE AS CR
+                LEFT
+                JOIN	dreamsearch.admember AS AD
+            ON 		CR.userid = AD.userid
+            WHERE	AD.USERID = 'jhkimssp'
+       
+             GROUP BY CR.STATUS   
+            </textarea><textarea>           
+		SELECT	CR.USERID		AS adverId,
+		        AD.corpname		AS adverCorpName,
+				CR.seq			AS seq,
+				CR.TYPE		AS itype,
+				CR.DEVICE		AS imgSe,
+				CR.size		AS imgCode,
+
+				CR.CONTENTS	AS imgInfo,
+				CR.BGCOLOR		AS imgBkg,
+				CR.STATUS		AS  useYn,
+
+				CR.NAME		AS crtName,
+				CR.URL			AS crtUrl,
+				CR.HISTORY		AS history,
+				CR.WIDTH		AS width,
+				CR.HEIGHT      AS height,
+				CR.CONF_DTTM	AS  confmDt,
+				CR.REJECT_DTTM	AS  rejectDt,
+				CR.REG_DTTM	AS  regDt,
+				CR.ALT_DTTM	AS  altDt,
+
+				CR.REG_USER_ID	AS userId
+		FROM	dreamsearch.CREATIVE AS CR
+			LEFT
+			JOIN	dreamsearch.admember AS AD
+		ON 		CR.userid = AD.userid
+		WHERE	AD.USERID = 'jhkimssp'
+            
+            ORDER BY CR.seq DESC
+            
+             LIMIT 0, 10  
+
+        </textarea><div id="loadingBg" class="complete">
+    loading...
+</div>
+<script type="text/javascript">
+    $(window).load(function () {
+        $("#loadingBg").addClass("complete");
+    });
+</script>
+<div id="wrap">
+    <h1 class="location">홈 &gt; 소재 검수</h1>
+    <section>
+        <ul class="crtstatus">
+            <li class="A">
+               <h4>전체</h4>
+               <span>100</span>
+            </li>
+            <li class="C">
+                <h4>승인</h4>
+                <span>100</span>
+            </li>
+            <li class="W">
+                <h4>대기</h4>
+                <span>100</span>
+            </li>
+            <li class="R">
+                <h4>반려</h4>
+                <span>100</span>
+            </li>
+        </ul>
+    </section>
+    
+<script type="text/javascript">
+    function OpenrtbPopUp( checkUrl ) {
+        switch( checkUrl ) {
+            case 1:
+                window.open("/v2/openrtb/openrtb_traffic_popup.php?seq=", "openrtb_traffic", "width=500px, height=300px, scrollbars=auto");
+                break;
+
+            default:
+                window.open("/v2/openrtb/openrtb_category_popup.php?seq=", "openrtb_category", "width=500px, height=700px, scrollbars=auto");
+                break;
+        }
+    }
+</script>
+<!--Search Area Start-->
+<form name="frm" action="/v2/setting/creative_check.php">
+    <input type="hidden" name="c_userid" value="">
+    <input type="hidden" name="gb_data" value="">
+    <input type="hidden" name="hy_search" value="detailSearch">
+    <input type="hidden" name="gb" value="TOT">
+    <input type="hidden" name="grade" value="">
+    <input type="hidden" name="cateNum" value="">
+    <input type="hidden" name="gb_web" value="">
+    <input type="hidden" name="gb_target" value="">
+    <input type="hidden" name="val_gubun" value="">
+    <input type="hidden" name="order_name" value="">
+    <input type="hidden" name="order_type" value="">
+    <input type="hidden" name="s_gubun" value="">
+    <input type="hidden" name="mcode" value="">
+    <input type="hidden" name="userid" value="jhkimssp">
+    <input type="hidden" name="edate" value="">
+    <input type="hidden" name="asort" value="">
+    <input type="hidden" name="adesc" value="">
+    <input type="hidden" name="mc" value="">
+    <input type="hidden" name="zoneid" value="">
+    <input type="hidden" name="selid" value="">
+    <input type="hidden" name="seladm" value="">
+    <input type="hidden" name="mgubun" value="">
+    <input type="hidden" name="i_gubun" value="">
+    <input type="hidden" name="media_id" value="">
+    <input type="hidden" name="mid" value="">
+    <input type="hidden" name="adExchange_include" value="Y">
+    <input type="hidden" name="kakaoSearch" value="">
+    <input type="hidden" name="kakaoRTB_include" value="Y">
+    <input type="hidden" name="todayReport_include" value="Y">
+    <input type="hidden" name="external" value="">
+    <!--<input type="hidden" id="graph_0" name="graph_0" value='0'>
+    <input type="hidden" id="graph_1" name="graph_1" value='0'>
+    <input type="hidden" id="graph_2" name="graph_2" value='0'>
+    <input type="hidden" id="graph_3" name="graph_3" value='1'>
+    <input type="hidden" id="graph_4" name="graph_4" value='1'>
+    <input type="hidden" id="graph_5" name="graph_5" value='1'>
+    <input type="hidden" id="graph_6" name="graph_6" value='1'>
+    <input type="hidden" id="graph_7" name="graph_7" value='1'>
+    <input type="hidden" id="graph_8" name="graph_8" value='1'>
+    <input type="hidden" id="graph_9" name="graph_9" value='1'>
+    <input type="hidden" id="graph_10" name="graph_10" value='1'>
+    <input type="hidden" id="graph_11" name="graph_11" value='1'>
+    <input type="hidden" id="graph_12" name="graph_12" value='1'>
+    <input type="hidden" id="graph_13" name="graph_13" value='1'>
+    <input type="hidden" id="graph_14" name="graph_14" value='1'>
+    <input type="hidden" id="graph_15" name="graph_15" value=''>
+    <input type="hidden" id="graph_16" name="graph_16" value=''>
+    <input type="hidden" id="graph_17" name="graph_17" value=''>
+    <input type="hidden" id="graph_18" name="graph_18" value=''>
+    <input type="hidden" id="graph_19" name="graph_19" value=''>
+    <input type="hidden" id="graph_20" name="graph_20" value=''>
+    <input type="hidden" id="graph_21" name="graph_21" value=''>
+    <input type="hidden" id="graph_22" name="graph_22" value=''>  -->
+
+    <input type="hidden" id="graph_type" name="graph_type" value="">
+    <input type="hidden" id="cmno" name="cmno" value="">
+    <input type="hidden" id="detail_view" name="detail_view" value="N">
+    <input type="hidden" id="icontact_member" name="icontact_member" value="">
+    <!-- 잔여포인트 기준 // mhsong -->
+    <input type="hidden" id="user_point" name="user_point" value="">
+    <input type="hidden" id="before_user_point" name="before_user_point" value="">
+    <input type="hidden" id="searchWord" name="searchWord" value="">
+    <input type="hidden" id="gb_sort" name="gb_sort" value="">
+
+    <input type="hidden" name="ji_st" value="">
+    <input type="hidden" name="roas50" value="">
+
+    <input type="hidden" name="search_size" value="">
+    <input type="hidden" name="search_CTGR_SEQ" value="">
+    <input type="hidden" name="search_field" value="">
+    <input type="hidden" name="search_text" value="">
+    <input type="hidden" name="tp_code" value="">
+
+    <input type="hidden" name="w_name" value="">
+    <input type="hidden" name="w_val" value="">
+
+            <!--
+    <input type="hidden" name="roas_mc" value="" />
+    <input type="hidden" name="ctr_mc" value="" />
+    <input type="hidden" name="roas_sc" value="" />
+    <input type="hidden" name="ctr_sc" value="" />
+    <input type="hidden" name="roas_s" value=""/>
+    <input type="hidden" name="roas_e" value=""/>
+    <input type="hidden" name="ctr_s" value=""/>
+    <input type="hidden" name="ctr_e" value=""/> -->
+
+    <input type="hidden" name="time" value="">
+    <input type="hidden" name="stime" value="">
+    <input type="hidden" name="mcgb" value="">
+    <input type="hidden" name="Openrtb" value="">
+    <input type="hidden" name="rtb_tp_code" value="">
+
+    <input type="hidden" name="ctgr_no" value="">
+    <input type="hidden" name="ctgr_t_no" value="">
+    <input type="hidden" name="gb_sitecate" value="">
+    <input type="hidden" name="selSyndi" value="">
+    <input type="hidden" name="insite_inven" value="">
+
+    
+        <!-- start 검색 폼:s-->
+    <section class="optionBox">
+        <h3 class="hidden">옵션 박스</h3>
+        <div class="date">
+            <h4 class="hidden">날짜선택</h4>
+            <div class="calendar">
+                <div class="icon"></div>
+                <div class="dateChoice">
+                    <input type="text" class="dateInput" id="dateInput" value="" readonly="readonly" autocomplete="false">
+                    <input type="hidden" name="st_date" value="2021-06-01">
+                    <input type="hidden" name="en_date" value="2021-06-17">
+                </div>
+            </div>
+        </div>
+        <div class="customSelect setType">
+            <h4>소재사이즈</h4>
+            <select name="crtSize" onchange="submit_form_web('TOT>');">
+                <option value="">소재 사이즈 선택</option>
+                <option value="17">300x250</option>
+                <option value="31">970x90</option>
+            </select>
+        </div>
+        <div class="customSelect setType">
+            <h4>상태</h4>
+            <select name="crtstatus" onchange="submit_form_web('TOT>');">
+                <option value="">전체</option>
+                <option value="W">대기</option>
+                <option value="C">승인</option>
+                <option value="R">반려</option>
+            </select>
+        </div>
+        <!--<div class="setTypeBox">
+            <div class="buttonBox">
+                <button type="button" id="dateButton" onclick="submit_form_search_btn('TOT','','')">검색</button>
+            </div>
+        </div>-->
+
+        <div class="setTypeBox">
+                        
+
+            
+                        <!--<div class="buttonBox">
+                <button type="button" id="dateButton" onclick="submit_form_search_btn('TOT','','')">검색</button>
+            </div> -->
+        </div>
+
+
+
+
+
+                <!--
+        <div class="ranges2">
+            <ul>
+                <li data-range-key="오늘" onclick="submit_form('TOT','2021-06-17','2021-06-17','1','')">오늘</li>
+                <li data-range-key="어제" onclick="submit_form('TOT','2021-06-16','2021-06-16','1','')">어제</li>
+                <li data-range-key="1주일" onclick="submit_form('TOT','2021-06-11','2021-06-17','7','')">1주일</li>
+                <li data-range-key="이번달" onclick="submit_form('TOT','2021-06-01','2021-06-17','30','')">이번달</li>
+                <li data-range-key="전월" onclick="submit_form('TOT','2021-05-01','2021-05-31','30','')">전월</li>
+                <li data-range-key="6개월" onclick="submit_form('TOT','2020-12-19','2021-06-17','180','')">6개월</li>
+            </ul>
+        </div> -->
+
+        
+        
+            </section>
+
+            <!-- 검색 폼:e-->
+    
+        
+
+</form>
+
+<form method="post" name="frm_excel_down" action="/ad/make_excel.php" target="ifr_pro">
+    <input type="hidden" id="datatodisplay" name="datatodisplay">
+</form>
+<script>
+
+    // MOBON ADMIN SEARCH FORM INTERFACE
+    var MOBON_SEARCH_FORM= function () {};
+    MOBON_SEARCH_FORM.prototype = {
+        before : function() {	}
+        , after : function() {	}
+    }; var MSF = new MOBON_SEARCH_FORM();
+
+    function excel_chk3(){
+        // MOBON ADMIN SEARCH INTERFACE
+        MSF.before();
+
+        if(document.getElementById('ahnlab_main_board')===null){
+            return excel_chk();
+        }
+                var datatodisplay = $("<div>").append( $("#ahnlab_main_board").clone().eq(0) ).html();
+	//console.log( datatodisplay );
+
+//	$("#main_board img").remove();
+        $("#datatodisplay").val( $("<div>").append( $("#ahnlab_main_board").clone().eq(0) ).html() );
+        //alert($("#datatodisplay").val());
+        //$("#datatodisplay img").remove();
+
+        //frm_excel_down.action = "/v2/report_excel/make_excel.php";
+        frm_excel_down.action = "/ad/make_excel.php";
+        frm_excel_down.target = "ifr_pro";
+        frm_excel_down.submit();
+
+        // MOBON ADMIN SEARCH INTERFACE
+        MSF.after();
+    }
+
+    function excel_chk_v2(){
+        // MOBON ADMIN SEARCH INTERFACE
+        MSF.before();
+
+        if(document.getElementById('main_boardv2')===null){
+            return excel_chk();
+        }
+                var datatodisplay = $("<div>").append( $("#main_boardv2").clone().eq(0) ).html();
+//	console.log( datatodisplay );
+
+//	$("#main_board img").remove();
+        $("#datatodisplay").val( $("<div>").append( $("#main_boardv2").clone().eq(0) ).html() );
+        //alert($("#datatodisplay").val());
+        //$("#datatodisplay img").remove();
+
+        //frm_excel_down.action = "/v2/report_excel/make_excel.php";
+        frm_excel_down.action = "/ad/make_excel.php";
+        frm_excel_down.target = "ifr_pro";
+        frm_excel_down.submit();
+
+        // MOBON ADMIN SEARCH INTERFACE
+        MSF.after();
+    }
+
+
+
+
+    function excel_chk2(){
+        // MOBON ADMIN SEARCH INTERFACE
+        MSF.before();
+
+        if(document.getElementById('main_board')===null){
+            return excel_chk();
+        }
+                var datatodisplay = $("<div>").append( $("#main_board").clone().eq(0) ).html();
+//	console.log( datatodisplay );
+
+//	$("#main_board img").remove();
+        $("#datatodisplay").val( $("<div>").append( $("#main_board").clone().eq(0) ).html() );
+        //alert($("#datatodisplay").val());
+        //$("#datatodisplay img").remove();
+
+        //frm_excel_down.action = "/v2/report_excel/make_excel.php";
+        frm_excel_down.action = "/ad/make_excel.php";
+        frm_excel_down.target = "ifr_pro";
+        frm_excel_down.submit();
+
+        // MOBON ADMIN SEARCH INTERFACE
+        MSF.after();
+    }
+    function excel_chk(){
+        if(document.getElementsByName("ifr_pro")){
+            if(typeof(window["excel_down"]) == "function"){
+                excel_down();
+            }else{
+                alert('현재 페이지는 엑셀 다운로드 기능이 지원되지 않습니다.');
+            }
+        }else{
+            alert('페이지 로딩중입니다. \n 로딩이 끝나면 재시도해주세요');
+        }
+    }
+
+    var getCampCnt = function(obj) {
+
+        var oData = {
+            'cmd': 'getCnt',
+            'gb' : "",
+        };
+        if (obj.modi != undefined) {
+            oData['start_date'] = $('#st_date').val() + ' 00:00:00';
+            oData['end_date'] = $('#en_date').val() + ' 23:59:59';
+        }
+
+        $.ajax({
+            url: 'ajax/ctrProcess.php',
+            type: "POST",
+            dataType: "json",
+            data: oData,
+            success: function (data) {
+                if(data) {
+                    $(".nt-all-cnt").text(data.cnt);
+                    $(".nt-w-cnt").text(data.w_cnt);
+                    $(".nt-m-cnt").text(data.m_cnt);
+                    $(".nt-s-cnt").text(data.s_cnt);
+
+                                    }
+            },
+            cache: false
+        });
+    };
+
+    function adutFormTpCodesAllChk() {
+        var isChk = $('#adutFormTpCodes').is(':checked');
+
+        $('input:checkbox[id="adutFormTpCodes01"]').prop("checked", isChk);
+        $('input:checkbox[id="adutFormTpCodes02"]').prop("checked", isChk);
+        $('input:checkbox[id="adutFormTpCodes03"]').prop("checked", isChk);
+        $('input:checkbox[id="adutFormTpCodes04"]').prop("checked", isChk);
+        $('input:checkbox[id="adutFormTpCodes05"]').prop("checked", isChk);
+    }
+
+    function adutFormTpCodesSlChk(chkAdut) {
+        if ($(chkAdut).is(':checked') == false) {
+            $('input:checkbox[id="adutFormTpCodes"]').prop("checked", false);
+        }
+    }
+
+    $("#adutTpRank").click(function(){
+        const obj = this;
+        let checked = $(obj).is(':checked');
+        $('input:checkbox[name="adutTpRank[]"]').prop("checked", checked)
+    });
+
+    $(".notiIcon").click(function(){
+        $(".notiIcon").css('filter', '');
+        $(this).css('filter', 'drop-shadow(2px 4px 6px black)');
+        $("#notiRank").val($(this).attr('notiRank'));
+    });
+    $('.notiReset').click(function() {
+        $(".notiIcon").css('filter', '');
+        $("#notiRank").val('');
+    });
+
+    $(".shopRoasIcon").click(function(){
+        $(".shopRoasIcon").css('filter', '');
+        $(this).css('filter', 'drop-shadow(2px 4px 6px black)');
+        $("#shopRoas").val($(this).attr('shopRoas'));
+    });
+    $('.shopRoasReset').click(function() {
+        $(".shopRoasIcon").css('filter', '');
+        $("#shopRoas").val('');
+    });
+
+    $(function() {
+        //날짜 검색
+        $('#dateInput').data('daterangepicker').setStartDate('2021-06-01');
+        $('#dateInput').data('daterangepicker').setEndDate('2021-06-17');
+    });
+
+
+</script>
+
+
+
+
+    <!--
+    <div class="centerBox">
+        <button type="button" class="modalOpen" data-modal="pop_exposure_ratio">등록</button>
+        <button type="button">취소</button>
+    </div>
+
+    <section class="optionBox" style="text-align: right">
+        <button type="button" onclick="javascript:fdel()">삭제</button>
+    </section>-->
+
+    <!-- 어드민정보:e-->
+
+    <form name="frmpage" action="exposure_ratio.php">
+        <input type="hidden" name="dm_page" value="1">
+
+    </form>
+
+    <form name="frm_list" method="post" action="" target="ifr_pro">
+        <input type="hidden" name="mode" value="">
+
+        <section class="tableSection">
+            <p>* 소재명을 클릭하여 소재 이미지를 확인하세요.</p>
+            <p>* 반려 처리시, 메모에 반려 사유 입력 부탁드립니다.</p>
+            <div>
+                <!--<h3>노출비율 변경 이력</h3>-->
+                <table class="crtstatus">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="20%">
+                        <col width="15%">
+                        <col width="5%">
+                        <col width="13%">
+                        <col width="22%">
+                        <col width="5%">
+                    </colgroup>
+                    <thead>
+                    <tr role="row">
+                        <th>광고주명(ID)</th>
+                        <th>소재명</th>
+                        <th>소재 사이즈</th>
+                        <th>상태</th>
+                        <th>승인/반려</th>
+                        <th>메모</th>
+                        <th>히스토리</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2" class="txt-p" onclick="imgBig();">소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11소재 등록 11</td>
+                            <td>300x250</td>
+                            <td class="W">대기</td>
+                            <td><button type="button" class="chg_crt_status" data-seq="13" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="13" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo13" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="13">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(13,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon.net</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 8</td>
+                            <td>300x250</td>
+                            <td class="W">대기</td>
+                            <td><button type="button" class="chg_crt_status" data-seq="12" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="12" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo12" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="12">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(12,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left"></td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 7</td>
+                            <td>300x250</td>
+                            <td class="W">대기</td>
+                            <td><button type="button" class="chg_crt_status" data-seq="8" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="8" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo8" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="8">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(8,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon.net12</td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 6</td>
+                            <td>300x250</td>
+                            <td class="R">반려</td>
+                            <td><button type="button" class="chg_crt_status" data-seq="7" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" data-seq="7" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo7" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="7">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(7,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon22.net</td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 5</td>
+                            <td>300x250</td>
+                            <td class="W">대기</td>
+                            <td><button type="button" class="chg_crt_status" data-seq="6" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="6" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo6" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="6">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(6,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon.net</td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 4</td>
+                            <td>970x90</td>
+                            <td class="C">승인</td>
+                            <td><button type="button" data-seq="5" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="5" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo5" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="5">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(5,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon22.net</td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 3</td>
+                            <td>300x250</td>
+                            <td class="C">승인</td>
+                            <td><button type="button" data-seq="4" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="4" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo4" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="4">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(4,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left"></td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 2 </td>
+                            <td>300x250</td>
+                            <td class="C">승인</td>
+                            <td><button type="button" data-seq="3" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="3" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo3" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="3">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(3,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon.net</td>
+                        </tr>
+
+
+                        
+
+                        <tr>
+                            <td rowspan="2">SSP_김진호 (jhkimssp)</td>
+                            <td rowspan="2">소재 등록 1</td>
+                            <td>970x90</td>
+                            <td class="W">대기</td>
+                            <td><button type="button" class="chg_crt_status" data-seq="1" onclick="chg_crt_status(this,'C');">승인</button>
+                                <button type="button" class="chg_crt_status" data-seq="1" onclick="chg_crt_status(this,'R');">반려</button></td>
+                            <td><input type="text" name="memo" class="memo smemo1" placeholder="메모를 입력하세요."><button type="button" class="smemo_btn" data-seq="1">저장</button></td>
+                            <td><i class="search_btn" onclick="view_crt(1,'jhkimssp')"></i></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: left">http://mobon.net</td>
+                        </tr>
+
+
+                        
+
+
+
+                    </tbody>
+                </table>
+                                <!-- <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+</form></div>
+<footer id="footer">
+    <p>Copyright(c) 2012 모비온 All rights reserved.</p>
+</footer>
+<div id="pop_exposure_ratio" class="modal">
+    <div class="modalContent pop_exposure_ratio">
+        <p><span class="sat">노출비율</span>을 저장하시겠습니까?</p>
+        <div class="modalFooter">
+            <div class="btn-box">
+                <button class="cancel">취소</button>
+                <button class="save smemo_btn">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="crtImgView"></div>
+
+
+<script type="text/javascript">
+    function imgBig(){
+        let imgSrc = 'http://img.mobon.net/Frtb/images/preview/300x250/e300-250.png';
+        document.querySelector(".crtImgView").innerHTML +="<div class='imgView'><div><p><span onclick='imgBigDel();'>&#10006;</span></p><img src="+imgSrc+"></div></div>";
+    }
+    function imgBigDel(){document.querySelector(".crtImgView").innerHTML="";}
+
+    function view_crt(iseq,iadid) {
+        window.open('./creative_detail.php?seq='+iseq+'&iad='+iadid,'pop','resizable=yes,width=1000,height=700,scrollbars=yes');
+
+    }
+
+    function chg_crt_status(obj, stype) {
+        $(obj).toggleClass('chg_crt_status');
+        var iseq = $(obj).data("seq");
+        var params ={
+            mode : 'change_status',
+            iseq : iseq,
+            stype : stype
+        }
+        // return;
+        $.ajax({
+            url	: '/ad/ifr_creative.php',
+            type : 'POST',
+            dataType : 'json',
+            data : params,
+            success	: function(aData) {
+                if( aData.result == "OK" ) {
+
+                    alert('저장되었습니다.');
+                  //  location.reload();
+                } else {
+                    alert('수정 중 문제가 발생하였습니다.');
+                }
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                alert("통신 실패.")
+            }
+        });
+
+       // alert(iseq + stype);
+
+    }
+
+
+
+    $('.smemo_btn').on('click', function() {
+        var iseq = $(this).data("seq");
+        memo = $(".smemo"+iseq).val();
+
+        if(memo =="")
+        {
+            alert("내용을 입력하세요");
+        }
+        var params ={
+            mode : 'memo_save',
+            iseq : iseq,
+            memo : memo
+        }
+
+        // return;
+        $.ajax({
+            url	: '/ad/ifr_creative.php',
+            type : 'POST',
+            dataType : 'json',
+            data : params,
+            success	: function(aData) {
+                if( aData.result == "OK" ) {
+
+                    alert('저장되었습니다.');
+                    location.reload();
+                } else {
+                    alert('수정 중 문제가 발생하였습니다.');
+                }
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
+                alert("통신 실패.")
+            }
+        });
+
+    });
+</script>
+
+
+
+<script>
+
+
+    function page(page2)
+    {
+        frmpage.dm_page.value=page2;
+        frmpage.submit();
+    }
+
+    // select 전체선택, 취소
+    function Select_All()
+    {
+        if(document.frm_list.chk.checked == true) {
+
+            for(i=0; i < frm_list.elements.length ; i++)
+            {
+                if(frm_list.elements[i].name.substring(0,5) == "check") frm_list.elements[i].checked = true;
+            }
+        }
+        else {
+
+            for(i=0; i < frm_list.elements.length ; i++)
+            {
+                if(frm_list.elements[i].name.substring(0,5) == "check") frm_list.elements[i].checked = false;
+            }
+        }
+    }
+
+    function fdel(){
+        var objSave = confirm("선택한 메모를 삭제 하시겠습니까?");
+        if (objSave == true) {
+
+            frm_list.mode.value = "chkdel";
+            frm_list.action = "/ad/ifr_exposure_ratio.php";
+            frm_list.target = "ifr_pro";
+            frm_list.submit();
+        }
+    }
+
+</script>
+
+
+<iframe name="ifr_pro" src="about:blank" width="300" height="0" frameborder="0" scrolling="auto"></iframe>
+<audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</td></tr></tbody></table><div class="daterangepicker ltr auto-apply show-ranges opensright"><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="ranges"><ul><li data-range-key="오늘">오늘</li><li data-range-key="어제">어제</li><li data-range-key="이번달">이번달</li><li data-range-key="전월">전월</li><li data-range-key="전전월">전전월</li><li data-range-key="최근 7일">최근 7일</li><li data-range-key="최근 30일">최근 30일</li><li data-range-key="6개월">6개월</li></ul></div><div class="drp-buttons"><span class="drp-selected">2021-06-01 ~ 2021-06-17</span><button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button><button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> </div></div></body><audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio></html>

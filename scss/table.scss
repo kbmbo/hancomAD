@@ -1,0 +1,524 @@
+.tableSection {
+	position: relative;
+	padding: 15px;
+	overflow: hidden;
+	background-color: #ffffff;
+	border: solid 1px #eaeaea;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	> div {
+		margin-bottom: 10px;
+		width: 100%;
+		height: 626px;
+		overflow-y: auto;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		.page-nav-box{
+			position: sticky;
+			bottom:0;
+			width: 100%;
+			padding-top: 40px;
+			background-color: #fff;
+			.page-nav{
+				display: flex;
+				-webkit-box-pack:center;
+				-ms-flex-pack:center;
+				justify-content:center;
+				ul{display: inline-block; vertical-align: top;}
+				li,.prev,.next{
+					position: relative;
+					width: 30px;
+					@include lineH(30px);
+					display: inline-block;
+					font-size: 15px;
+					text-align: center;
+					color: #000;
+					background-color: #f4f4f4;
+					margin: 0 2px;
+					border-radius: 5px;
+					cursor: pointer;
+					&:hover,&.active{
+						background-color: $blue;
+						color:#fff;
+						&:before,&:after{background-color: #fff;}
+					}
+				}
+				.prev,.next{margin: 0 13px;}
+				.prev:before,.next:before,.prev:after,.next:after{
+					content: '';
+					width:2px;
+					height:10px;
+					background-color: #717171;
+					display: block;
+					position: absolute;left:14px;
+				}
+				.prev:after,.next:before{transform:rotate(-45deg);}
+				.prev:before,.next:after{transform:rotate(45deg);}
+				.prev:after,.next:after{bottom:7px;}
+				.prev:before,.next:before{top:7px;}
+			}
+		}
+	}
+	.tableTap {
+		.tapList {
+			&:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			> li {
+				float: left;
+				width: 100px;
+				height: 37px;
+				background: #ececec;
+				border: 1px solid #dadada;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 37px;
+				cursor: pointer;
+				transition: 0.3s;
+				&.active {
+					position: relative;
+					background: #fff;
+					border: 1px solid #d7d7d7;
+					box-shadow: 0px -3px 4px 0 rgba(0, 0, 0, 0.1);
+					&:before {
+						content: "";
+						position: absolute;
+						display: block;
+						width: 100px;
+						height: 2px;
+						background: $blue;
+					}
+				}
+			}
+		}
+	}
+	.buttonBox{ height: 32px; margin-bottom: 15px;}
+	table {
+		border-collapse: collapse;
+		table-layout: fixed;
+		text-align: center;
+		width: 100%;
+		word-break:break-all;
+		.border-W2{border-width: 2px;}
+		th,td {
+			vertical-align: middle;
+			overflow: hidden;
+			height: 45px;
+			padding: 10px;
+		}
+		> thead, > tfoot {display: table-header-group;}
+		> thead th, > tfoot td, > tbody th{background: #f4f4f4;}
+		> thead {
+			th {
+				color: #3e3e3e;
+				height: 60px;
+				position: sticky;
+				top: 0;
+				font-size: 16px;
+			}
+		}
+		> tfoot{
+			border-bottom:1px solid #eaeaea;
+			font-size: 15px;
+			td{
+				position: sticky;
+				top: 60px;
+				padding:10px 0;
+				&:before{
+					content: '';
+					display: block;
+					border-top:2px solid #fff;
+					position: absolute;
+					top: 0;
+					width: 100%;
+				}
+			}
+		}
+		tbody {
+			font-size: 13px;
+			> tr {
+				width: 100%;
+				border-bottom: 1px solid #eaeaea;
+			}
+			button{float: unset; margin: 0;}
+		}
+		.search_btn{
+			background-image: url('../img/icon/search_btn.png');
+			background-position: center center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			@include WH(15px,15px);
+			display: inline-block;
+			margin-left: 5px;
+			cursor: pointer;
+		}
+		&.media_day_admix{
+			th:last-child,tfoot td:last-child{
+				background-color: $blue;
+				color: #fff;
+			}
+			tbody td:last-child{
+				background-color: #e6ecf9;
+			}
+		}
+		&.Manager_ecpm_new{
+			tbody{
+				th{
+					border-bottom: 1px solid #fff;
+				}
+				tr:first-child th{border-top: 1px solid #fff;}
+				td:first-child{
+					i{margin: 5px 0 0;}
+					button{
+						float: none;
+						margin: 0 0 7px;
+						background-color: #dedede;
+						color: #000;
+						font-size: 12px;
+						padding: 5px;
+					}
+					.smemo.txt,textarea{margin:25px 0 10px;}
+					.CPM{
+						margin: 15px 0 20px;
+						&:before{
+							content: 'CPM /';padding-right: 2px;
+						}
+					}
+				} 
+				textarea{font-size:12px;}
+			} 
+		}
+		&.checkboxArea{
+			button{
+				padding: 0 6px;
+				&.memo_save{width: 24%;background-color:$blue;}
+			}
+			input{
+				margin-right: 3%;
+				width: 73%;
+			}
+		}
+		&.crtstatus{
+			margin-top: 15px;
+			tbody td{
+				border-right:1px solid #eaeaea;
+				&:last-child{border-right: 0;}
+				input{width: calc(100% - 78px); float: left;}
+				button.smemo_btn{float: right;}
+				button.chg_crt_status{background: #d0d0d0;}
+			}
+			.C{color: $sky; font-weight: 600;}
+			.W{color: $green; font-weight: 600;}
+			.R{color: $red; font-weight: 600;}
+		}
+	}
+}
+#creative_detail table{
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	word-break:break-all;
+	margin: 20px 0;
+	tr{
+		&:first-of-type{border-top: 1px solid #dadada;}
+		border-bottom: 1px solid #dadada;
+	}	
+	td{
+		padding: 10px;
+		vertical-align: middle;
+		overflow: hidden;
+		line-height: 26px;
+		&:first-of-type{
+			border-right: 1px solid #dadada;
+			font-weight: 500;
+			background-color: #f4f4f4;
+		}
+		textarea{
+			padding: 6px 10px;
+			height: 150px;
+			overflow-y: auto;
+			resize: none;
+			line-height: 22px;
+		}
+	}
+}
+.twoLineTableSection {
+	position: relative;
+	padding: 15px;
+	box-sizing: border-box;
+	margin-top: 20px;
+	overflow: auto;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+	background-color: #ffffff;
+	border: solid 1px #eaeaea;
+	> div {
+		overflow: auto;
+	}
+	.detailTable {
+		tr {
+			cursor: pointer;
+			&.detail {
+				display: none;
+				background: #f7f7f7;
+				&.show {
+					display: block;
+				}
+			}
+		}
+	}
+	table {
+		width: 5000px;
+		border-collapse: collapse;
+		table-layout: fixed;
+		text-align: center;
+		th,
+		td,
+		tfoot td {
+			width: 130px;
+			box-sizing: border-box;
+			border-collapse: collapse;
+			vertical-align: middle;
+		}
+		img {
+			height: 20px;
+			margin-right: 5px;
+		}
+		> thead,
+		> tfoot {
+			display: table;
+			height: 60px;
+			background: #f4f4f4;
+			font-size: 13px;
+		}
+		> thead {
+			th {
+				color: #3e3e3e;
+				cursor: pointer;
+			}
+			tr {
+				&:nth-of-type(1) {
+					border-top: 1px solid #ccc;
+					th {
+						box-shadow: 1px 1px 0 0 #ccc;
+						&:last-child {
+							box-shadow: 0 1px 0 0 #ccc;
+						}
+					}
+				}
+				&:nth-of-type(2) {
+					border-top: 1px solid #ccc;
+					th {
+						box-shadow: 1px 1px 0 0 #ccc;
+						&:last-child {
+							box-shadow: 0 1px 0 0 #ccc;
+						}
+					}
+				}
+			}
+		}
+		tbody {
+			display: block;
+			height: 600px;
+			overflow: auto;
+			overflow-x: hidden;
+			font-size: 12px;
+			table-layout: fixed;
+			> tr {
+				display: table;
+				width: 100%;
+				table-layout: fixed;
+				border-bottom: 1px solid #eaeaea;
+				&:hover {
+					background: #f4f4f4;
+				}
+				> td.icon {
+					a {
+						display: inline-block;
+						width: 25px;
+						height: 25px;
+						margin-top: 5px;
+						border-radius: 5px;
+					}
+				}
+				> td > a {
+					color: #000;
+				}
+				> td:first-child {
+					background: transparent;
+				}
+			}
+		}
+		button.textBtn {
+			display: block;
+			width: 50px;
+			padding: 7px 9px;
+			margin: 0 auto;
+			background: #309656;
+			border-radius: 5px;
+			font-size: 12px;
+			text-align: center;
+		}
+	}
+	tbody > tr > td,
+	tfoot > tr > td {
+		height: 40px;
+		line-height: 1.3;
+	}
+}
+
+.tableSection table .oneOnOffSetting div,
+.twoLineTableSection table .oneOnOffSetting div {
+	width: 50px;
+	margin: 0 auto;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.tableSection table .oneOnOffSetting div button,
+.twoLineTableSection table .oneOnOffSetting div button {
+	float: left;
+	width: 50px;
+	margin: auto;
+	background: #dadada;
+	border-radius: 0;
+	color: #fff;
+}
+.tableSection table .oneOnOffSetting div button.on,
+.twoLineTableSection table .oneOnOffSetting div button.on {
+	background: #309656;
+}
+.tableSection table .twoOnOffSetting div,
+.twoLineTableSection table .twoOnOffSetting div {
+	width: 80px;
+	margin: 0 auto;
+	border: 1px solid #dadada;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.tableSection table .twoOnOffSetting div button,
+.twoLineTableSection table .twoOnOffSetting div button {
+	float: left;
+	width: 40px;
+	margin: auto;
+	background: #dadada;
+	border-radius: 0;
+	color: #fff;
+}
+.tableSection table .twoOnOffSetting div button.on,
+.twoLineTableSection table .twoOnOffSetting div button.on {
+	background: #309656;
+}
+.tableSection table .fourOnOffSetting div,
+.twoLineTableSection table .fourOnOffSetting div {
+	width: 80px;
+	margin: 0 auto;
+	border: 1px solid #dadada;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.tableSection table .fourOnOffSetting div button,
+.twoLineTableSection table .fourOnOffSetting div button {
+	float: left;
+	width: 40px;
+	margin: auto;
+	background: #dadada;
+	border-radius: 0;
+	color: #fff;
+}
+.tableSection table .fourOnOffSetting div button.on,
+.twoLineTableSection table .fourOnOffSetting div button.on {
+	background: #309656;
+}
+
+.dt-button-collection {
+	position: absolute;
+	top: 40px !important;
+	left: 15px !important;
+	min-width: 110px;
+	margin-top: 15px !important;
+	border: 1px solid $blue;
+	background: #ffffff;
+	border-radius: 6px;
+	> ul {
+		max-height: 300px;
+		overflow-y: auto;
+		> li:hover {
+			background: #f4f4f4;
+		}
+		> li {
+			> a {
+				display: block;
+				padding: 10px 20px;
+				cursor: pointer;
+				text-decoration: line-through;
+				color: red;
+				&.active {
+					text-decoration: none;
+					color: #000;
+				}
+			}
+		}
+	}
+}
+
+.basicTable {
+	width: 100%;
+	border: 1px solid #dadada;
+	border-collapse: collapse;
+	th {
+		border: 1px solid #dadada;
+		border-collapse: collapse;
+	}
+	td {
+		border: 1px solid #dadada;
+		border-collapse: collapse;
+	}
+}
+
+.simple_table {
+	position: relative;
+	padding: 15px;
+	box-sizing: border-box;
+	margin-top: 20px;
+	overflow: auto;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+	background-color: #ffffff;
+	border: solid 1px #eaeaea;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	> div {
+		table {
+			width: 100%;
+			text-align: center;
+			border-collapse: collapse;
+			table-layout: fixed;
+			> thead {
+				background: #f4f4f4;
+				font-size: 13px;
+				th {
+					height: 37px;
+					vertical-align: middle;
+					color: #3e3e3e;
+				}
+			}
+			> tbody {
+				td {
+					height: 37px;
+					vertical-align: middle;
+					color: #3e3e3e;
+				}
+				&:last-child {
+					border-bottom: 1px solid #f4f4f4;
+				}
+			}
+		}
+	}
+}
