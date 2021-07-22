@@ -39,6 +39,7 @@ if (ua.indexOf("MSIE") > 0 || ua.indexOf("Trident") > 0) {
 var magnificPopup;
 var common = {};
 //html 로드:s
+
 document.addEventListener("DOMContentLoaded", function() {
     var allElements = document.getElementsByTagName('*');
     Array.prototype.forEach.call(allElements, function(el) {
@@ -48,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     el.outerHTML = this.responseText;
-                    common.daterangepicker();
                 }
             };
             xhttp.open('GET', includePath, true);
@@ -61,68 +61,15 @@ document.addEventListener("DOMContentLoaded", function() {
 //html 로드:e
 // 메뉴
 common.menu = function (){
-    // 유저 메뉴 작동
-	$(".userMenu > button").on("click", function() {
-		$(".userMenu ul").stop().slideToggle(300);
-  });
-    // 유저 메뉴 작동 End
-    // 햄버거 메뉴 작동
-	$("#hamburger").on("click", function() {
-		$("#nav").toggleClass("minimization");
-		$(".navBG").toggleClass("minimization");
-		$("#sectionWrap, #footer").toggleClass("Maximize");
-		$(".depth > li > ul").slideUp(100);
-		$(".depth li").removeClass("on");
+    $(document).on("click",".logo,.main_nav li, .subMenu-list li", function() {
+        var URL=$(this).attr('data-url');
+        $(location).attr('href',URL);
     });
-    // 햄버거 메뉴 작동 End
-
-    // 2depth 메뉴 클릭 이벤트
-	$(".depth > li > a").on("click", function() {
-		let mini = $("#nav").hasClass("minimization");
-		$(this)
-			.parent()
-			.toggleClass("on");
-        if(mini === true){
-			$(".depth > li > ul").slideUp(100);
-			$(".depth li").removeClass("on");
-        }
-        $(this).next().stop().slideToggle(200);
-    });
-    // 2depth 메뉴 클릭 이벤트 End
-
-    // 3depth 메뉴 클릭 이벤트
-	$(".threeDepthMenu > a").on("click", function() {
-		$(this).next().stop().slideToggle(200);
-		$(this).parent().toggleClass("on");
-    });
-    // 3depth 메뉴 클릭 이벤트 End
-    
-    $(document).on("click",".chartTap li,.page-nav-box li,.tapList li,.subMenu-list li", function() {//addClass active 이벤트
+    $(document).on("click",".main_nav li,.chartTap li,.page-nav-box li,.tapList li,.subMenu-list li", function() {//addClass active 이벤트
       $(this).addClass('active').siblings().removeClass('active');
     });
-    
 };
 // 메뉴
-// sectionNav 공통 script
-function sectionNavLocation() {
-    let locationTop = $(window).scrollTop();
-    if (locationTop > 50) {
-		$(".SectionNav").css("top", locationTop + 182 + "px");
-    }
-}
-$(window).scroll(function(){
-	sectionNavLocation();
-});
-$(function(){
-	sectionNavLocation();
-});
-// sectionNav 공통 script End
-
-
-
-
-
-
 common.daterangepicker = function (){
   // 날짜 선택 script    
 	$(".dateInput").daterangepicker(
@@ -238,6 +185,7 @@ $(function() {
 	common.menu();
     //common.tableResize();
     common.modal();
+    common.daterangepicker();
 	//지정일 선택
 	$(".datepickSelect .inputBox span").click(function() {
 		$(".dateLayer").fadeIn(200);
@@ -265,6 +213,10 @@ $(function() {
 
 // 개별 페이지 script
 $(function(){
+    $(document).on('mouseover','.mediaTit', function() {
+		var mediaTit=$(this).text();
+        $(this).attr('title',mediaTit);
+    });
     // 날짜 선택 (오늘, 어제..) script
 	$(".optionBox .date .datePeriod li").on("click", function() {
 		$(".optionBox .date .datePeriod li").removeClass("on");
@@ -280,40 +232,39 @@ $(function(){
 	);
 	// 폴딩 테이블에 사용되는 스크립트 End
 	// Manager_ecpm_new(연동플랫폼 페이지내 테이블 버튼) :s
-	/*$(document).on('click','.smemo_btn', function() {
+	$(document).on('click','.smemo_btn', function() {
 		var el = $(this);
         if(el.hasClass('active')) {
 			var txtArea= el.parent().find('.txtArea').val()
 			el.parent().find('.smemo.txt').removeClass('none').text(txtArea);
             el.parent().find('.smemo_btn_cc,.txtArea').addClass('none');
             el.text('메모').removeClass('active');
-            // $.ajax({
-            //     url	: '/ad/ifr_admix_sort_list.php',
-            //     type : 'POST',
-            //     dataType : 'json',
-            //     data : {
-            //         mode : 'memo_save',
-            //         mc : el.data('mc'),
-            //         memo : txtArea
-            //     },
-            //     success	: function(aData) {
-            //         if( aData.result == "OK" ) {
-            //             el.parent().find('.smemo.txt').removeClass('none').text(txtArea);
-            //             el.parent().find('.smemo_btn_cc,.txtArea').addClass('none');
-            //             el.text('메모').removeClass('active');
-            //             alert('저장되었습니다.');
-            //         } else {
-            //             alert('수정 중 문제가 발생하였습니다.');
-            //         }
-            //     }
-            // });
+            $.ajax({
+                url	: '/ad/ifr_admix_sort_list.php',
+                type : 'POST',
+                dataType : 'json',
+                data : {
+                    mode : 'memo_save',
+                    mc : el.data('mc'),
+                    memo : txtArea
+                },
+                success	: function(aData) {
+                    if( aData.result == "OK" ) {
+                        el.parent().find('.smemo.txt').removeClass('none').text(txtArea);
+                        el.parent().find('.smemo_btn_cc,.txtArea').addClass('none');
+                        el.text('메모').removeClass('active');
+                        alert('저장되었습니다.');
+                    } else {
+                        alert('수정 중 문제가 발생하였습니다.');
+                    }
+                }
+            });
         } else {
             el.parent().find('.smemo_btn_cc,.txtArea').removeClass('none');
 			el.parent().find('.smemo.txt').addClass('none');
             el.text('저장').addClass('active');
         }
     });
-	*/
 
     $('.smemo_btn_cc').on('click', function() {
         $(this).addClass('none').parent().find('.smemo_btn').removeClass('none').text('메모');
@@ -321,11 +272,11 @@ $(function(){
         $(this).parent().find('.txtArea').addClass('none');
     });
 
-    /*$('.smemo.txt').on('click', function() {
+    $('.smemo.txt').on('click', function() {
         // open popup
         var mc = $(this).data('mc');
         window.open('/v2/admix_report/pop_admix_memo.php?mc='+mc,'pop_memo','resizable=yes,width=620,height=450,scrollbars=yes,top=0,screenX=0,screenY=0');
-    });*/
+    });
 	// Manager_ecpm_new(연동플랫폼 페이지내 테이블 버튼) :e
 
 	//테이블내 값 수정 - JB

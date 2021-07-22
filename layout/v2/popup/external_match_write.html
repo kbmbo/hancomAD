@@ -1,0 +1,88 @@
+<html lang="ko" style="background-color: #fff;">
+    <head>
+        <title>한컴 최고관리자</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../../js/chart.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../../js/table.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        
+        <div id="wrap" class="popup">
+            <h1 class="modalMainTitle"><span>안랩_토스트_300*250</span> 수정</h1>
+            <section class="tableSection">
+                <table id="rank">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="80%">
+                    </colgroup>
+                    <tbody>
+                    <tr class="border-t">
+                        <th scope="row">연동플랫폼</th>
+                        <td>
+                            <div class="customSelect">
+                                <select name="i_external_id">
+                                    <option value="">선택하기</option>
+                                    <option value="mobonal">모비온(타게팅)</option>
+                                    <option value="mobonal1">모비온(Non-타게팅)</option>
+                                    <option value="wadifal">왓이프</option>
+                                    <option value="digitalcamp2">디지털캠프(동영상)</option>
+                                    <option value="digitalcamp3">디지털캠프(배너)</option>
+                                    <option value="perpl1">퍼플(동영상)</option>
+                                    <option value="criteo1">크리테오</option>
+                                    <option value="mezzomedia1" selected="">메조미디어(동영상)</option>
+                                    <option value="naverahn">네이버(띠배너)</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">존아이디</th>
+                        <td><input type="text" name="i_zoneid" id="i_zoneid" value="32306_805204" maxlength="100"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">S값</th>
+                        <td><input class="w-200" type="text" name="i_media_code" value="490074"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ETC1</th>
+                        <td><input type="text" name="i_etc1" value="" maxlength="200"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <div class="centerBox">
+                <button type="button" onclick="submit_form()" class="save">저장</button>
+                <button type="button" onclick="history.back()" class="cancel">취소</button>
+            </div>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
+

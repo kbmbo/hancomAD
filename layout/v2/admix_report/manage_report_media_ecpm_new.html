@@ -1,0 +1,236 @@
+<html lang="ko">
+    <head>
+        <title>한컴 최고관리자</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../../js/chart.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../../js/table.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#loadingBg").addClass("complete");
+            });
+        </script>
+        <div data-include-path="/layout/header.html"></div>
+        <div id="wrap">
+            <h1 class="location">홈 > SSP연동사별통계 > 연동플랫폼</h1>
+            <ul class="subMenu-list">
+                <li onclick="location.href='/layout/v2/admix_report/manage_report_media_day_admix.html'">[일자별통계]</li>
+                <li onclick="location.href='/layout/ad/network_report.html'">[지면별통계]</li>
+                <li onclick="location.href='/layout/v2/admix_report/manage_report_media_ecpm_new.html'" class="active">[연동플랫폼]</li>
+                <li onclick="location.href='/layout/ad/manage_external_match.html'">[관리]</li>
+            </ul>
+            <ul class="subMenu-list">
+                <li onclick="location.href='javascript:void(0)'" class="active">[전체]</li>
+                <li onclick="location.href='javascript:void(0)'">[웹]</li>
+                <li onclick="location.href='javascript:void(0)'">[모바일]</li>
+            </ul>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox">
+                <h3 class="hidden">옵션 박스</h3>
+                <div class="date">
+                    <h4 class="hidden">날짜선택</h4>
+                    <div class="calendar">
+                        <div class="icon"></div>
+                        <div class="dateChoice">
+                            <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                            <input type="hidden" name="sDate" value="20210301">
+                            <input type="hidden" name="eDate" value="20210315">
+                        </div>
+                    </div>
+                </div>
+                <div class="setType border-0">
+                    <input type="text" name="" value="" placeholder="지면명/S값">
+                </div>
+                <div class="buttonBox">
+                    <button type="button" id="dateButton">검색</button>
+                </div>
+                <button type="button" class="excelDown">엑셀</button>
+            </section>
+            <!-- 검색 폼:e-->
+            <section class="tableSection">
+                <div class="H-5000">
+                    <table class="Manager_ecpm_new">
+                        <colgroup>
+                            <col width="20%" />
+                            <col width="10%" />
+                            <col width="15%" />
+                            <col width="11%" />
+                            <col width="11%" />
+                            <col width="11%" />
+                            <col width="11%" />
+                            <col width="11%" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>지면</th>
+                                <th colspan="7">애드익스</th>
+                            </tr>
+                            <!--1set:s-->
+                            <tr>
+                                <td rowspan="11">
+                                    <p class="txt-p" onclick="/*javascript:getPopup(9, 490074,'04','03','01')*/">토스트 300X250</p>
+                                    <i class="search_btn" onclick="window.open('/layout/v2/popup/manage_report_media_popup.html','pop','resizable=yes,width=1500,height=700,scrollbars=yes');"></i>
+                                    <p class="RS PCT red bold">1,300</p>
+                                    <p>123456</p>
+                                    <div class="shistory">
+                                        <span class="green bold">저장 완료</span>
+                                        <button type="button" data-mc="" data-trgt="" data-parsort="" data-advrtsprdt="">히스토리</button>
+                                    </div>
+                                    <p class="smemo txt txt-p blue"></p>
+                                    <textarea class="txtArea none"></textarea>
+                                    <button class="smemo_btn">메모</button>
+                                    <button class="smemo_btn_cc none">취소</button>
+                                    <br>
+                                    <button type="button" class="exl_btn" data-mc="" data-prdt="">연동현황</button>
+                                </td>
+                                <th>구분</th>
+                                <th>합계</th>
+                                <th class="MOBNAL" data-code="MOBNAL">모비온(타게팅)<i class="search_btn" onclick="window.open('/layout/v2/popup/network_report_popup.html','pop','resizable=yes,width=1500,height=700,scrollbars=yes');"></i></th>
+                                <th class="DGTC" data-code="DGTC">디지털캠프(동영상)</th>
+                                <th class="PPY1" data-code="PPY1">퍼플(동영상)</th>
+                                <th class="DGTCB" data-code="DGTCB">디지털캠프(배너)</th>
+                                <th class="MOBNALB" data-code="MOBNALB">모비온(Non-타게팅)</th>
+                            </tr>
+                            <tr>
+                                <th>ECPM</th>
+                                <td class="green bold">9999</td>
+                                <td class="green">9999</td>
+                                <td class="green">9999</td>
+                                <td class="green">9999</td>
+                                <td class="green">9999</td>
+                                <td class="green">9999</td>
+                            </tr>
+                            <tr>
+                                <th>요청수</th>
+                                <td class="bold">9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                            </tr>
+                            <tr>
+                                <th>요청받은수</th>
+                                <td class="bold">9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                            </tr>
+                            <tr>
+                                <th>노출수</th>
+                                <td class="bold">9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                            </tr>
+                            <tr>
+                                <th>노출점유율</th>
+                                <td class="PCT bold">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                            </tr>
+                            <tr>
+                                <th>게재율</th>
+                                <td class="PCT bold">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                                <td class="PCT">9999</td>
+                            </tr>
+                            <tr>
+                                <th>CTR</th>
+                                <td class="PCT blue bold">9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="PCT blue">9999</td>
+                            </tr>
+                            <tr>
+                                <th>CPC</th>
+                                <td class="WON red bold">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON red">9999</td>
+                            </tr>
+                            <tr>
+                                <th>수익금액</th>
+                                <td class="WON sun bold">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON sun">9999</td>
+                            </tr>
+                            <tr class="border-W2">
+                                <th>정산금액</th>
+                                <td class="WON bold">9999</td>
+                                <td class="WON">9999</td>
+                                <td class="WON">9999</td>
+                                <td class="WON">9999</td>
+                                <td class="WON">9999</td>
+                                <td class="WON">9999</td>
+                            </tr>
+                            <!--1set:e-->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
+

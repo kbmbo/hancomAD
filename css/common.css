@@ -75,6 +75,8 @@ h1.location {
     content: "";
     display: block;
     clear: both; }
+  .subMenu-list.first-list {
+    margin-bottom: 5px; }
   .subMenu-list li {
     float: left;
     margin-right: 7px;
@@ -200,6 +202,8 @@ input[type="radio"].disabled + label:before {
   border: 1px solid #d0d0d0;
   box-sizing: border-box;
   overflow: hidden; }
+  .customSelect.setType, .customSelect.setType select {
+    width: auto; }
   .customSelect.lastItem {
     margin-right: 0; }
   .customSelect select {
@@ -317,7 +321,7 @@ header {
   width: 100%;
   height: 80px;
   padding: 0 30px;
-  z-index: 999;
+  z-index: 499;
   background-color: #fff;
   box-shadow: 0px 0px 8px #bebebe; }
   header .logo {
@@ -328,7 +332,8 @@ header {
     width: 250px;
     height: 100%;
     float: left;
-    font-size: 0; }
+    font-size: 0;
+    cursor: pointer; }
   header .nav-con {
     float: right;
     height: 100%;
@@ -339,11 +344,14 @@ header {
       float: left;
       cursor: pointer;
       margin-right: 30px;
+      opacity: 0.7;
       width: 30px;
       height: 30px;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover; }
+      header .nav-con .main_nav li:hover, header .nav-con .main_nav li.active {
+        opacity: 1; }
       header .nav-con .main_nav li.manage_member {
         background-image: url("../img/menu/manage_member.png"); }
       header .nav-con .main_nav li.manage_report_media_day {
@@ -352,12 +360,24 @@ header {
         background-image: url("../img/menu/manage_report_media.png"); }
       header .nav-con .main_nav li.manage_report_media_day_admix {
         background-image: url("../img/menu/manage_report_media_day_admix.png"); }
-        header .nav-con .main_nav li.manage_report_media_day_admix .pointer_area {
-          bottom: -70px; }
       header .nav-con .main_nav li.manage_report_mcode2 {
         background-image: url("../img/menu/manage_report_mcode2.png"); }
       header .nav-con .main_nav li.creative_check {
         background-image: url("../img/menu/creative_check.svg"); }
+        header .nav-con .main_nav li.creative_check > p {
+          display: none;
+          min-width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #43b02a;
+          text-align: center;
+          line-height: 19px;
+          text-align: center;
+          position: absolute;
+          bottom: -8px;
+          right: -8px;
+          color: #fff;
+          padding: 0 3px; }
       header .nav-con .main_nav li:hover .pointer_area {
         display: block; }
       header .nav-con .main_nav li .pointer_area {
@@ -370,8 +390,8 @@ header {
         bottom: -52px;
         text-align: center;
         padding: 7px 8px;
-        margin-left: -15px;
-        width: 100px;
+        margin-left: -25px;
+        width: 115px;
         font-size: 13px; }
         header .nav-con .main_nav li .pointer_area:before {
           content: '';
@@ -648,21 +668,79 @@ header {
       border-bottom: #004ea8 1px solid; }
     .chartBox > div.platform .chart, .chartBox > div.platformShare .chart {
       height: 350px; }
-    .chartBox > div.platformChart {
+    .chartBox > div.platformChart, .chartBox > div.issue {
       display: flex;
-      justify-content: space-between; }
-      .chartBox > div.platformChart > div {
+      justify-content: space-between;
+      padding: 15px; }
+      .chartBox > div.platformChart > div, .chartBox > div.issue > div {
         width: 100%;
         padding: 0 15px 0;
         border-right: #ccc 1px solid; }
-        .chartBox > div.platformChart > div:last-child {
+        .chartBox > div.platformChart > div:last-child, .chartBox > div.issue > div:last-child {
           border-right: 0;
           padding-right: 0; }
-        .chartBox > div.platformChart > div:first-child {
+        .chartBox > div.platformChart > div:first-child, .chartBox > div.issue > div:first-child {
           padding-left: 0; }
-        .chartBox > div.platformChart > div .chart {
+        .chartBox > div.platformChart > div .issueCon, .chartBox > div.issue > div .issueCon {
           width: 100%;
-          height: 230px; }
+          height: 300px;
+          margin-top: 10px;
+          overflow-y: auto; }
+          .chartBox > div.platformChart > div .issueCon table, .chartBox > div.issue > div .issueCon table {
+            border: 1px solid #000;
+            font-size: 13px;
+            height: 100%;
+            border-collapse: collapse;
+            word-break: break-all; }
+            .chartBox > div.platformChart > div .issueCon table thead, .chartBox > div.issue > div .issueCon table thead {
+              background-color: #777;
+              color: #fff; }
+              .chartBox > div.platformChart > div .issueCon table thead th, .chartBox > div.issue > div .issueCon table thead th {
+                padding: 2px 0;
+                border-right: 1px solid #fff; }
+                .chartBox > div.platformChart > div .issueCon table thead th:last-child, .chartBox > div.issue > div .issueCon table thead th:last-child {
+                  border: 0; }
+            .chartBox > div.platformChart > div .issueCon table tbody, .chartBox > div.issue > div .issueCon table tbody {
+              background-color: #fff; }
+              .chartBox > div.platformChart > div .issueCon table tbody tr, .chartBox > div.issue > div .issueCon table tbody tr {
+                border-bottom: 1px solid #000; }
+                .chartBox > div.platformChart > div .issueCon table tbody tr:last-child, .chartBox > div.issue > div .issueCon table tbody tr:last-child {
+                  border: 0; }
+                .chartBox > div.platformChart > div .issueCon table tbody tr td, .chartBox > div.issue > div .issueCon table tbody tr td {
+                  border-right: 1px solid #000;
+                  padding: 0 4px;
+                  text-align: right; }
+                  .chartBox > div.platformChart > div .issueCon table tbody tr td p.mediaTit, .chartBox > div.issue > div .issueCon table tbody tr td p.mediaTit {
+                    text-align: left;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    width: 120px;
+                    height: 100%;
+                    line-height: 37px;
+                    cursor: pointer; }
+                  .chartBox > div.platformChart > div .issueCon table tbody tr td:last-child, .chartBox > div.issue > div .issueCon table tbody tr td:last-child {
+                    border: 0;
+                    font-size: 12px; }
+                  .chartBox > div.platformChart > div .issueCon table tbody tr td.up:before, .chartBox > div.platformChart > div .issueCon table tbody tr td.down:before, .chartBox > div.issue > div .issueCon table tbody tr td.up:before, .chartBox > div.issue > div .issueCon table tbody tr td.down:before {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    display: inline-block; }
+                  .chartBox > div.platformChart > div .issueCon table tbody tr td.up, .chartBox > div.issue > div .issueCon table tbody tr td.up {
+                    color: #00a3e0; }
+                    .chartBox > div.platformChart > div .issueCon table tbody tr td.up:before, .chartBox > div.issue > div .issueCon table tbody tr td.up:before {
+                      border-width: 0 4px 7px 4px;
+                      border-color: transparent transparent #00a3e0 transparent; }
+                  .chartBox > div.platformChart > div .issueCon table tbody tr td.down, .chartBox > div.issue > div .issueCon table tbody tr td.down {
+                    color: #ee2737; }
+                    .chartBox > div.platformChart > div .issueCon table tbody tr td.down:before, .chartBox > div.issue > div .issueCon table tbody tr td.down:before {
+                      border-width: 7px 4px 0 4px;
+                      border-color: #ee2737 transparent transparent transparent; }
+            .chartBox > div.platformChart > div .issueCon table th, .chartBox > div.platformChart > div .issueCon table td, .chartBox > div.issue > div .issueCon table th, .chartBox > div.issue > div .issueCon table td {
+              vertical-align: middle;
+              overflow: hidden; }
     .chartBox > div .chart {
       width: 100%;
       height: 230px;
@@ -774,6 +852,57 @@ ul.crtstatus {
   font-size: 13px;
   color: #4d4d4d; }
 
+.page-nav-box {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding-top: 40px;
+  background-color: #fff; }
+  .page-nav-box .page-nav {
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .page-nav-box .page-nav ul {
+      display: inline-block;
+      vertical-align: top; }
+    .page-nav-box .page-nav li, .page-nav-box .page-nav .prev, .page-nav-box .page-nav .next {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      font-size: 15px;
+      text-align: center;
+      color: #000;
+      background-color: #f4f4f4;
+      margin: 0 2px;
+      border-radius: 5px;
+      cursor: pointer; }
+      .page-nav-box .page-nav li:hover, .page-nav-box .page-nav li.active, .page-nav-box .page-nav .prev:hover, .page-nav-box .page-nav .prev.active, .page-nav-box .page-nav .next:hover, .page-nav-box .page-nav .next.active {
+        background-color: #004ea8;
+        color: #fff; }
+        .page-nav-box .page-nav li:hover:before, .page-nav-box .page-nav li:hover:after, .page-nav-box .page-nav li.active:before, .page-nav-box .page-nav li.active:after, .page-nav-box .page-nav .prev:hover:before, .page-nav-box .page-nav .prev:hover:after, .page-nav-box .page-nav .prev.active:before, .page-nav-box .page-nav .prev.active:after, .page-nav-box .page-nav .next:hover:before, .page-nav-box .page-nav .next:hover:after, .page-nav-box .page-nav .next.active:before, .page-nav-box .page-nav .next.active:after {
+          background-color: #fff; }
+    .page-nav-box .page-nav .prev, .page-nav-box .page-nav .next {
+      margin: 0 13px; }
+    .page-nav-box .page-nav .prev:before, .page-nav-box .page-nav .next:before, .page-nav-box .page-nav .prev:after, .page-nav-box .page-nav .next:after {
+      content: '';
+      width: 2px;
+      height: 10px;
+      background-color: #717171;
+      display: block;
+      position: absolute;
+      left: 14px; }
+    .page-nav-box .page-nav .prev:after, .page-nav-box .page-nav .next:before {
+      transform: rotate(-45deg); }
+    .page-nav-box .page-nav .prev:before, .page-nav-box .page-nav .next:after {
+      transform: rotate(45deg); }
+    .page-nav-box .page-nav .prev:after, .page-nav-box .page-nav .next:after {
+      bottom: 7px; }
+    .page-nav-box .page-nav .prev:before, .page-nav-box .page-nav .next:before {
+      top: 7px; }
+
 .tableSection {
   position: relative;
   padding: 15px;
@@ -787,87 +916,42 @@ ul.crtstatus {
   .tableSection > div {
     margin-bottom: 10px;
     width: 100%;
-    height: 626px;
+    max-height: 1880px;
     overflow-y: auto; }
     .tableSection > div:last-child {
       margin-bottom: 0; }
-    .tableSection > div .page-nav-box {
-      position: sticky;
-      bottom: 0;
-      width: 100%;
-      padding-top: 40px;
-      background-color: #fff; }
-      .tableSection > div .page-nav-box .page-nav {
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center; }
-        .tableSection > div .page-nav-box .page-nav ul {
-          display: inline-block;
-          vertical-align: top; }
-        .tableSection > div .page-nav-box .page-nav li, .tableSection > div .page-nav-box .page-nav .prev, .tableSection > div .page-nav-box .page-nav .next {
-          position: relative;
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
-          display: inline-block;
-          font-size: 15px;
-          text-align: center;
-          color: #000;
-          background-color: #f4f4f4;
-          margin: 0 2px;
-          border-radius: 5px;
-          cursor: pointer; }
-          .tableSection > div .page-nav-box .page-nav li:hover, .tableSection > div .page-nav-box .page-nav li.active, .tableSection > div .page-nav-box .page-nav .prev:hover, .tableSection > div .page-nav-box .page-nav .prev.active, .tableSection > div .page-nav-box .page-nav .next:hover, .tableSection > div .page-nav-box .page-nav .next.active {
-            background-color: #004ea8;
-            color: #fff; }
-            .tableSection > div .page-nav-box .page-nav li:hover:before, .tableSection > div .page-nav-box .page-nav li:hover:after, .tableSection > div .page-nav-box .page-nav li.active:before, .tableSection > div .page-nav-box .page-nav li.active:after, .tableSection > div .page-nav-box .page-nav .prev:hover:before, .tableSection > div .page-nav-box .page-nav .prev:hover:after, .tableSection > div .page-nav-box .page-nav .prev.active:before, .tableSection > div .page-nav-box .page-nav .prev.active:after, .tableSection > div .page-nav-box .page-nav .next:hover:before, .tableSection > div .page-nav-box .page-nav .next:hover:after, .tableSection > div .page-nav-box .page-nav .next.active:before, .tableSection > div .page-nav-box .page-nav .next.active:after {
-              background-color: #fff; }
-        .tableSection > div .page-nav-box .page-nav .prev, .tableSection > div .page-nav-box .page-nav .next {
-          margin: 0 13px; }
-        .tableSection > div .page-nav-box .page-nav .prev:before, .tableSection > div .page-nav-box .page-nav .next:before, .tableSection > div .page-nav-box .page-nav .prev:after, .tableSection > div .page-nav-box .page-nav .next:after {
-          content: '';
-          width: 2px;
-          height: 10px;
-          background-color: #717171;
-          display: block;
+    .tableSection > div.H-5000 {
+      max-height: 5000px; }
+  .tableSection .tableTap {
+    margin-bottom: 0; }
+    .tableSection .tableTap .tapList:after {
+      content: "";
+      display: block;
+      clear: both; }
+    .tableSection .tableTap .tapList > li {
+      float: left;
+      width: 100px;
+      height: 50px;
+      background: #ececec;
+      border: 1px solid #dadada;
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s; }
+      .tableSection .tableTap .tapList > li.active {
+        position: relative;
+        background: #fff;
+        border: 1px solid #d7d7d7;
+        box-shadow: 0px -3px 4px 0 rgba(0, 0, 0, 0.1); }
+        .tableSection .tableTap .tapList > li.active:before {
+          content: "";
           position: absolute;
-          left: 14px; }
-        .tableSection > div .page-nav-box .page-nav .prev:after, .tableSection > div .page-nav-box .page-nav .next:before {
-          transform: rotate(-45deg); }
-        .tableSection > div .page-nav-box .page-nav .prev:before, .tableSection > div .page-nav-box .page-nav .next:after {
-          transform: rotate(45deg); }
-        .tableSection > div .page-nav-box .page-nav .prev:after, .tableSection > div .page-nav-box .page-nav .next:after {
-          bottom: 7px; }
-        .tableSection > div .page-nav-box .page-nav .prev:before, .tableSection > div .page-nav-box .page-nav .next:before {
-          top: 7px; }
-  .tableSection .tableTap .tapList:after {
-    content: "";
-    display: block;
-    clear: both; }
-  .tableSection .tableTap .tapList > li {
-    float: left;
-    width: 100px;
-    height: 37px;
-    background: #ececec;
-    border: 1px solid #dadada;
-    box-sizing: border-box;
-    text-align: center;
-    line-height: 37px;
-    cursor: pointer;
-    transition: 0.3s; }
-    .tableSection .tableTap .tapList > li.active {
-      position: relative;
-      background: #fff;
-      border: 1px solid #d7d7d7;
-      box-shadow: 0px -3px 4px 0 rgba(0, 0, 0, 0.1); }
-      .tableSection .tableTap .tapList > li.active:before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 100px;
-        height: 2px;
-        background: #004ea8; }
+          display: block;
+          width: 100px;
+          height: 2px;
+          background: #004ea8; }
+      .tableSection .tableTap .tapList > li p:first-of-type {
+        padding-top: 5px; }
   .tableSection .buttonBox {
     height: 32px;
     margin-bottom: 15px; }
@@ -894,6 +978,28 @@ ul.crtstatus {
       position: sticky;
       top: 0;
       font-size: 16px; }
+      .tableSection table > thead th.sorting div, .tableSection table > thead th.sorting_asc div, .tableSection table > thead th.sorting_desc div {
+        display: inline-block; }
+      .tableSection table > thead th.sorting.mt-30:after, .tableSection table > thead th.sorting_asc.mt-30:after, .tableSection table > thead th.sorting_desc.mt-30:after {
+        margin: -30px 0 0 6px; }
+      .tableSection table > thead th.sorting:after, .tableSection table > thead th.sorting_asc:after, .tableSection table > thead th.sorting_desc:after {
+        cursor: pointer;
+        content: '';
+        background-image: url("../../img/icon/icon_arrow_default.png");
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 15px;
+        height: 23px;
+        display: inline-block;
+        margin: -3px 0 0 6px;
+        vertical-align: middle; }
+      .tableSection table > thead th.sorting:after {
+        background-image: url("../../img/icon/icon_arrow_default.png"); }
+      .tableSection table > thead th.sorting_asc:after {
+        background-image: url("../../img/icon/icon_arrow_up.png"); }
+      .tableSection table > thead th.sorting_desc:after {
+        background-image: url("../../img/icon//icon_arrow_down.png"); }
     .tableSection table > tfoot {
       border-bottom: 1px solid #eaeaea;
       font-size: 15px; }
@@ -913,6 +1019,8 @@ ul.crtstatus {
       .tableSection table tbody > tr {
         width: 100%;
         border-bottom: 1px solid #eaeaea; }
+        .tableSection table tbody > tr.border-t {
+          border-top: 1px solid #eaeaea; }
       .tableSection table tbody button {
         float: unset;
         margin: 0; }
@@ -933,6 +1041,16 @@ ul.crtstatus {
       background-color: #e6ecf9; }
     .tableSection table.Manager_ecpm_new tbody th {
       border-bottom: 1px solid #fff; }
+      .tableSection table.Manager_ecpm_new tbody th.MOBNAL {
+        background-color: #e8f70f; }
+      .tableSection table.Manager_ecpm_new tbody th.DGTC {
+        background-color: #A5AF55; }
+      .tableSection table.Manager_ecpm_new tbody th.PPY1 {
+        background-color: #d965ff; }
+      .tableSection table.Manager_ecpm_new tbody th.DGTCB {
+        background-color: #ad9cd2; }
+      .tableSection table.Manager_ecpm_new tbody th.MOBNALB {
+        background-color: #A5DF00; }
     .tableSection table.Manager_ecpm_new tbody tr:first-child th {
       border-top: 1px solid #fff; }
     .tableSection table.Manager_ecpm_new tbody td:first-child i {
@@ -946,11 +1064,13 @@ ul.crtstatus {
       padding: 5px; }
     .tableSection table.Manager_ecpm_new tbody td:first-child .smemo.txt, .tableSection table.Manager_ecpm_new tbody td:first-child textarea {
       margin: 25px 0 10px; }
-    .tableSection table.Manager_ecpm_new tbody td:first-child .CPM {
+    .tableSection table.Manager_ecpm_new tbody td:first-child .RS {
       margin: 15px 0 20px; }
-      .tableSection table.Manager_ecpm_new tbody td:first-child .CPM:before {
-        content: 'CPM /';
+      .tableSection table.Manager_ecpm_new tbody td:first-child .RS:before {
+        content: 'RS /';
         padding-right: 2px; }
+    .tableSection table.Manager_ecpm_new tbody td:first-child .shistory, .tableSection table.Manager_ecpm_new tbody td:first-child .exl_btn {
+      margin-top: 15px; }
     .tableSection table.Manager_ecpm_new tbody textarea {
       font-size: 12px; }
     .tableSection table.checkboxArea button {
@@ -1239,7 +1359,8 @@ ul.crtstatus {
 
 #wrap.popup {
   padding: 15px 20px;
-  background-color: #fff; }
+  background-color: #fff;
+  top: 0; }
 
 .modal {
   display: none;
@@ -1377,7 +1498,8 @@ ul.crtstatus {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
-  align-items: center; }
+  align-items: center;
+  z-index: 500; }
   .imgView > div {
     background-color: #fff;
     padding: 5px 30px 30px;

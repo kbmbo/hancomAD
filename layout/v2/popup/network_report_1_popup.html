@@ -1,0 +1,226 @@
+<html lang="ko" style="background-color: #fff;">
+    <head>
+        <title>한컴 최고관리자</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../../js/chart.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../../js/table.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        
+        <div id="wrap" class="popup">
+            <h1 class="modalMainTitle"><span>한컴_즐겨찾기 / 쿠팡(즐겨찾기)</span> 일자별 통계</h1>
+            <ul class="subMenu-list">
+                <li onclick="location.href='javascript:void(0)'" class="active">[전체]</li>
+                <li onclick="location.href='javascript:void(0)'">[웹]</li>
+                <li onclick="location.href='javascript:void(0)'">[모바일]</li>
+            </ul>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox">
+                <h3 class="hidden">옵션 박스</h3>
+                <div class="date">
+                    <h4 class="hidden">날짜선택</h4>
+                    <div class="calendar">
+                        <div class="icon"></div>
+                        <div class="dateChoice">
+                            <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                            <input type="hidden" name="sDate" value="20210301">
+                            <input type="hidden" name="eDate" value="20210315">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="excelDown">엑셀</button>
+            </section>
+            <!-- 검색 폼:e-->
+            <section class="chartBox">
+                <div>
+                    <p class="bar"></p>
+                    <div class="customSelect">
+                        <select name="">
+                            <option value="">요청수</option>
+                            <option value="" selected>노출수</option>
+                            <option value="">클릭률</option>
+                            <option value="">수익</option>
+                            <option value="">ECMP</option>
+                        </select>
+                    </div>
+                    <p class="line"></p>
+                    <div class="customSelect lastItem">
+                        <select name="">
+                            <option value="">요청수</option>
+                            <option value="">노출수</option>
+                            <option value="" selected>클릭률</option>
+                            <option value="">수익</option>
+                            <option value="">ECMP</option>
+                        </select>
+                    </div>
+                    <div class="chart">
+                        <!--그래프삽입--->
+                    </div>
+                </div>
+            </section>
+            <section class="tableSection">
+                <div>
+                    <table class="dataTable">
+                        <colgroup>
+                            <col width="5%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="15%" />
+                            <col width="15%" />
+                            <col width="15%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting">날짜</th>
+                                <th class="sorting">요청수</th>
+                                <th class="sorting">요청받은수</th>
+                                <th class="sorting">설치수</th>
+                                <th class="sorting">총수량</th>
+                                <th class="sorting mt-30"><div><p>구매수량</p><p class="red">취소수량</p></div></th>
+                                <th class="sorting">총매출</th>
+                                <th class="sorting mt-30"><div><p>구매금액</p><p class="red">취소금액</p></div></th>
+                                <th class="sorting">수익금액</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="totalFooter bold">
+                                <td>합계</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td class="bold red">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold blue">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>999999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
+

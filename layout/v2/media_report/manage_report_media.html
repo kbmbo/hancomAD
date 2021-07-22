@@ -1,0 +1,584 @@
+<html lang="ko">
+    <head>
+        <title>한컴 최고관리자</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../../js/chart.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../../js/table.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#loadingBg").addClass("complete");
+            });
+        </script>
+        <div data-include-path="/layout/header.html"></div>
+        <div id="wrap">
+            <h1 class="location">홈 > 지면별통계</h1>
+            <ul class="subMenu-list">
+                <li onclick="location.href='javascript:void(0)'" class="active">[전체]</li>
+                <li onclick="location.href='javascript:void(0)'">[웹]</li>
+                <li onclick="location.href='javascript:void(0)'">[모바일]</li>
+            </ul>
+            <section class="chartBox">
+                <div class="issue">
+                    <div>
+                        <h4>노출수 이슈</h4>
+                        <div class="issueCon">
+                            <table>
+                                <colgroup>
+                                    <col width="30%" />
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>지면명</th>
+                                        <th>06.14(일)</th>
+                                        <th>06.14(월)</th>
+                                        <th>등락</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_토스트</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><P class="mediaTit">한컴_설치화면1</P></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입1_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_즐겨찾기</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입3_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입2_하단배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_설치화면3</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>CTR 이슈</h4>
+                        <div class="issueCon">
+                            <table>
+                                <colgroup>
+                                    <col width="30%" />
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>지면명</th>
+                                        <th>06.14(일)</th>
+                                        <th>06.14(월)</th>
+                                        <th>등락</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_토스트</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><P class="mediaTit">한컴_설치화면1</P></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입1_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_즐겨찾기</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입3_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입2_하단배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_설치화면3</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>CPC 이슈</h4>
+                        <div class="issueCon">
+                            <table>
+                                <colgroup>
+                                    <col width="30%" />
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>지면명</th>
+                                        <th>06.14(일)</th>
+                                        <th>06.14(월)</th>
+                                        <th>등락</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_토스트</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><P class="mediaTit">한컴_설치화면1</P></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입1_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_즐겨찾기</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입3_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입2_하단배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_설치화면3</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>수익 이슈</h4>
+                        <div class="issueCon">
+                            <table>
+                                <colgroup>
+                                    <col width="30%" />
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>지면명</th>
+                                        <th>06.14(일)</th>
+                                        <th>06.14(월)</th>
+                                        <th>등락</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_토스트</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><P class="mediaTit">한컴_설치화면1</P></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입1_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_즐겨찾기</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입3_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입2_하단배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_설치화면3</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>ECPM 이슈</h4>
+                        <div class="issueCon">
+                            <table>
+                                <colgroup>
+                                    <col width="30%" />
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="20%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>지면명</th>
+                                        <th>06.14(일)</th>
+                                        <th>06.14(월)</th>
+                                        <th>등락</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_토스트</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><P class="mediaTit">한컴_설치화면1</P></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입1_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_즐겨찾기</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입3_날개배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_문서타입2_하단배너</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT down">-75.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p class="mediaTit">한컴_설치화면3</p></td>
+                                        <td>10,260</td>
+                                        <td>5,858</td>
+                                        <td class="PCT up">75.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox">
+                <h3 class="hidden">옵션 박스</h3>
+                <div class="date">
+                    <h4 class="hidden">날짜선택</h4>
+                    <div class="calendar">
+                        <div class="icon"></div>
+                        <div class="dateChoice">
+                            <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                            <input type="hidden" name="sDate" value="20210301">
+                            <input type="hidden" name="eDate" value="20210315">
+                        </div>
+                    </div>
+                </div>
+                <div class="setTypeBox">
+                    <div class="clear setType">
+                        <h4>구분</h4>
+                        <div>
+                            <input type="radio" name="platformType" id="platformType00" class="hidden" value="00" checked="checked">
+                                <label for="platformType00">전체</label>
+                            <input type="radio" name="platformType" id="platformType01" class="hidden" value="01">
+                                <label for="platformType01">하우스</label>
+                            <input type="radio" name="platformType" id="platformType02" class="hidden" value="02">
+                                <label for="platformType02">직광고</label>
+                            <input type="radio" name="platformType" id="platformType03" class="hidden" value="03">
+                                <label for="platformType03">SSP연동사</label>
+                        </div>
+                    </div>
+                    <input type="text" name="s_txt" class="w-200" placeholder="지면명/S값">
+                </div>
+                <div class="buttonBox">
+                    <button type="button" id="dateButton">검색</button>
+                </div>
+                
+                <button type="button" class="excelDown">엑셀</button>
+            </section>
+            <!-- 검색 폼:e-->
+            <section class="tableSection">
+                <div>
+                    <table class="dataTable">
+                        <colgroup>
+                            <col width="12%" />
+                            <col width="5%" />
+                            <col width="6%" />
+                            <col width="12%" />
+                            <col width="11%" />
+                            <col width="5%" />
+                            <col width="10%" />
+                            <col width="5%" />
+                            <col width="5%" />
+                            <col width="12%" />
+                            <col width="12%" />
+                            <col width="5%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting">지면명</th>
+                                <th class="sorting">S값</th>
+                                <th class="sorting">캠페인수</th>
+                                <th class="sorting">요청수</th>
+                                <th class="sorting">노출수</th>
+                                <th class="sorting">게재율</th>
+                                <th class="sorting">클릭수</th>
+                                <th class="sorting">클릭률</th>
+                                <th class="sorting">CPC</th>
+                                <th class="sorting">수익금액</th>
+                                <th class="sorting">정산금액</th>
+                                <th class="sorting">ECPM</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="totalFooter bold">
+                                <td colspan="3">합계</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">999999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>안랩_토스트_300*250<i class="search_btn" onclick="window.open('/layout/v2/popup/manage_report_media_popup.html','pop','resizable=yes,width=1600,height=700,scrollbars=yes')"></i></td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td>안랩_토스트_300*250</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td>안랩_토스트_300*250</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td>안랩_토스트_300*250</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td>안랩_토스트_300*250</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td>안랩_토스트_300*250</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td>안랩_토스트_300*250</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="sun"><p class="WON">9999</p><p>RS 60</p></td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
+

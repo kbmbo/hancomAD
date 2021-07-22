@@ -1,0 +1,588 @@
+<html lang="ko">
+    <head>
+        <title>한컴 최고관리자</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../../js/chart.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../../js/table.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#loadingBg").addClass("complete");
+            });
+        </script>
+        <div data-include-path="/layout/header.html"></div>
+        <div id="wrap">
+            <h1 class="location">홈 > 일자별통계 > 배너</h1>
+            <ul class="subMenu-list first-list">
+                <li data-url="/layout/v2/daily_report/manage_report_media_day.html" class="active">[배너]</li>
+                <li data-url="/layout/v2/daily_report/manage_report_media_day_1.html">[즐겨찾기]</li>
+            </ul>
+            <ul class="subMenu-list">
+                <li onclick="location.href='javascript:void(0)'" class="active">[전체]</li>
+                <li onclick="location.href='javascript:void(0)'">[웹]</li>
+                <li onclick="location.href='javascript:void(0)'">[모바일]</li>
+            </ul>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox">
+                <h3 class="hidden">옵션 박스</h3>
+                <div class="date">
+                    <h4 class="hidden">날짜선택</h4>
+                    <div class="calendar">
+                        <div class="icon"></div>
+                        <div class="dateChoice">
+                            <input type="text" class="dateInput" value="" readonly="readonly" autocomplete="false">
+                            <input type="hidden" name="sDate" value="20210301">
+                            <input type="hidden" name="eDate" value="20210315">
+                        </div>
+                    </div>
+                </div>
+                <div class="setTypeBox">
+                    <div class="clear setType">
+                        <h4>구분</h4>
+                        <div>
+                            <input type="radio" name="platformType" id="platformType00" class="hidden" value="00" checked="checked">
+                                <label for="platformType00">전체</label>
+                            <input type="radio" name="platformType" id="platformType01" class="hidden" value="01">
+                                <label for="platformType01">하우스</label>
+                            <input type="radio" name="platformType" id="platformType02" class="hidden" value="02">
+                                <label for="platformType02">직광고</label>
+                            <input type="radio" name="platformType" id="platformType03" class="hidden" value="03">
+                                <label for="platformType03">SSP연동사</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttonBox">
+                    <button type="button" id="dateButton">검색</button>
+                </div>
+                
+                <button type="button" class="excelDown">엑셀</button>
+            </section>
+            <!-- 검색 폼:e-->
+            <section class="chartBox">
+                <div>
+                    <p class="bar"></p>
+                    <div class="customSelect">
+                        <select name="">
+                            <option value="">요청수</option>
+                            <option value="" selected>노출수</option>
+                            <option value="">클릭률</option>
+                            <option value="">수익</option>
+                            <option value="">ECMP</option>
+                        </select>
+                    </div>
+                    <p class="line"></p>
+                    <div class="customSelect lastItem">
+                        <select name="">
+                            <option value="">요청수</option>
+                            <option value="">노출수</option>
+                            <option value="" selected>클릭률</option>
+                            <option value="">수익</option>
+                            <option value="">ECMP</option>
+                        </select>
+                    </div>
+                    <div class="chart">
+                        <!--그래프삽입--->
+                    </div>
+                </div>
+            </section>
+            <section class="tableSection">
+                <div>
+                    <table class="dataTable">
+                        <colgroup>
+                            <col width="8%" />
+                            <col width="6%" />
+                            <col width="13%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="5%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="8%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting">날짜</th>
+                                <th class="sorting">지면수</th>
+                                <th class="sorting">요청수</th>
+                                <th class="sorting">노출수</th>
+                                <th class="sorting">게재율</th>
+                                <th class="sorting">클릭수</th>
+                                <th class="sorting">클릭률</th>
+                                <th class="sorting">CPC</th>
+                                <th class="sorting">수익금액</th>
+                                <th class="sorting">정산금액</th>
+                                <th class="sorting">ECPM</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="totalFooter bold">
+                                <td colspan="2">합계</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td class="bold red">03-17<i class="search_btn" onclick="window.open('/layout/v2/media_report/manage_report_media.html')"></i></td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold blue">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">03-17</td>
+                                <td>3</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td class="PCT">9999</td>
+                                <td>9999</td>
+                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
+                                <td class="WON red">9999</td>
+                                <td class="WON sun">9999</td>
+                                <td class="WON green">9999</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
+

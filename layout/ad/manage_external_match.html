@@ -1,0 +1,229 @@
+<html lang="ko">
+    <head>
+        <title>한컴 최고관리자</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/fullCalendar.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/lib/jquery.dataTables.css">
+        <link type="text/css" rel="styleSheet" href="//unpkg.com/swiper/swiper-bundle.css">
+        <link type="text/css" rel="stylesheet" href="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/style.css">
+        <script type="text/javascript" src="../../../js/jquery-2.2.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/common.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../../../js/lib/moment.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/daterangepicker_popup.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.mtz.monthpicker.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dataTables/buttons.colVis.min.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/highcharts.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/data.js"></script>
+        <script type="text/javascript" src="../../../js/lib/highcharts/modules/drilldown.js"></script>
+        <script type="text/javascript" src="../../../js/chart.js"></script>
+        <script type="text/javascript" src="../../../js/lib/jquery.techbytarun.excelexportjs.js"></script>
+        <script type="text/javascript" src="../../../js/table.js"></script>
+        <script type="text/javascript" src="../../../js/lib/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="../../../js/lib/fullCalendar.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="chrome-extension://eobejphpabbjeehffmbiecckpkggpbai/js/content-script/page_context.js"></script>
+    </head>
+    <body naver_screen_capture_injected="true">
+        <div id="loadingBg" class="complete">
+            loading...
+        </div>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#loadingBg").addClass("complete");
+            });
+        </script>
+        <div data-include-path="/layout/header.html"></div>
+        <div id="wrap">
+            <h1 class="location">홈 > SSP연동사별통계 > 관리</h1>
+            <ul class="subMenu-list">
+                <li onclick="location.href='/layout/v2/admix_report/manage_report_media_day_admix.html'">[일자별통계]</li>
+                <li onclick="location.href='/layout/ad/network_report.html'">[지면별통계]</li>
+                <li onclick="location.href='/layout/v2/admix_report/manage_report_media_ecpm_new.html'">[연동플랫폼]</li>
+                <li onclick="location.href='/layout/ad/manage_external_match.html'" class="active">[관리]</li>
+            </ul>
+            <ul class="subMenu-list">
+                <li onclick="location.href='javascript:void(0)'" class="active">[전체]</li>
+                <li onclick="location.href='javascript:void(0)'">[웹]</li>
+                <li onclick="location.href='javascript:void(0)'">[모바일]</li>
+            </ul>
+            <!-- start 검색 폼:s-->
+            <section class="optionBox2">
+                <div class="conBox">
+                    <h3>검색</h3>
+                    <div class="customSelect">
+                        <select name="ADVRTS_PRDT_CODE">
+                            <option value="" selected="">노출형태선택</option>
+                            <option value="">배너</option>
+                            <option value="">즐겨찾기</option>
+                        </select>
+                    </div>
+                    <div class="customSelect">
+                        <select name="s_external_id">
+                            <option value="" selected="">연동플랫폼선택</option>
+                            <option value="">전체</option>
+                            <option value="">모비온</option>
+                            <option value="">와이더</option>
+                            <option value="">크리테오</option>
+                        </select>
+                    </div>
+                    <div class="customSelect">
+                        <select name="s_w_type">
+                            <option value="" selected="">웹/모바일</option>
+                            <option value="">전체</option>
+                            <option value="">웹</option>
+                            <option value="">모바일</option>
+                        </select>
+                    </div>
+                    <div class="customSelect">
+                        <select name="s_state">
+                            <option value="" selected="">상태</option>
+                            <option value="">전체</option>
+                            <option value="Y">게재중</option>
+                            <option value="N">중지</option>
+                        </select>
+                    </div>
+                    <input type="text" name="s_txt" class="w-200" placeholder="존아이디/S값/지면명">
+                    <button type="button" id="dateButton">검색</button>
+                </div>
+            </section>
+            <!-- 검색 폼:e-->
+            <!-- 등록 폼:s-->
+            <section class="optionBox2">
+                <div class="conBox">
+                    <h3>지면 등록</h3>
+                    <input type="text" name="i_zoneid" class="w-200" maxlength="100" placeholder="존아이디">
+                    <input type="number" name="i_media_code" class="w-200" placeholder="S값">
+                    <input type="text" name="i_etc1" class="w-200" maxlength="200" placeholder="ECT">
+                    <button type="button">등록</button>
+                </div>
+            </section>
+            <!-- 등록 폼:e-->
+            <section class="tableSection">
+                <div class="buttonBox">
+                    <button type="button" onclick="location.href='javascript:fstart()'" class="fstart">게재</button>
+                    <button type="button" onclick="location.href='javascript:fstop()'" class="fstop">중지</button>
+                    <button type="button" onclick="location.href='javascript:fdel()'" class="fdel">삭제</button>
+                    <button type="button" class="excelDown">엑셀</button>
+                </div>
+                <div>
+                    <table class="allCheckItems checkboxArea">
+                        <colgroup>
+                            <col width="3%" />
+                            <col width="7%" />
+                            <col width="8%" />
+                            <col width="12%" />
+                            <col width="5%" />
+                            <col width="13%" />
+                            <col width="13%" />
+                            <col width="6%" />
+                            <col width="6%" />
+                            <col width="6%" />
+                            <col width="5%" />
+                            <col width="12%" />
+                            <col width="4%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th>
+                                    <input type="checkbox" name="allCheckbox" id="allChk" class="none">
+                                    <label for="allChk"></label>
+                                </th>
+                                <th>NO</th>
+                                <th>연동플랫폼</th>
+                                <th>존아이디</th>
+                                <th>구분</th>
+                                <th>S값</th>
+                                <th>지면명</th>
+                                <th>등록일</th>
+                                <th>라이브일</th>
+                                <th>중지일</th>
+                                <th>상태</th>
+                                <th>ETC</th>
+                                <th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk1" class="none">
+                                    <label for="Chk1"></label>
+                                </td>
+                                <td>3</td>
+                                <td>모비온</td>
+                                <td>ZONE_ID3</td>
+                                <td>웹</td>
+                                <td>99999</td>
+                                <td>지면명</td>
+                                <td>2021/03/25</td>
+                                <td>2021/03/25</td>
+                                <td>2021/03/25</td>
+                                <td class="green bold">게재중</td>
+                                <td><input type="text" name="i_etc1" maxlength="200"><button class="memo_save">저장</button></td>
+                                <td><button onclick="window.open('/layout/v2/popup/external_match_write.html','pop','resizable=yes,width=800,height=410,scrollbars=yes');">수정</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk2" class="none">
+                                    <label for="Chk2"></label>
+                                </td>
+                                <td>2</td>
+                                <td>모비온</td>
+                                <td>ZONE_ID2</td>
+                                <td>모바일</td>
+                                <td>99999</td>
+                                <td>지면명</td>
+                                <td>2021/03/25</td>
+                                <td>2021/03/25</td>
+                                <td>2021/03/25</td>
+                                <td class="green bold">게재중</td>
+                                <td><input type="text" name="i_etc1" maxlength="200"><button class="memo_save">저장</button></td>
+                                <td><button>수정</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="Chk" id="Chk3" class="none">
+                                    <label for="Chk3"></label>
+                                </td>
+                                <td>1</td>
+                                <td>모비온</td>
+                                <td>ZONE_ID1</td>
+                                <td>웹</td>
+                                <td>99999</td>
+                                <td>지면명</td>
+                                <td>2021/03/25</td>
+                                <td>2021/03/25</td>
+                                <td>2021/03/25</td>
+                                <td class="gray bold">중지</td>
+                                <td><input type="text" name="i_etc1" maxlength="200"><button class="memo_save">저장</button></td>
+                                <td><button>수정</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="page-nav-box">
+                        <div class="page-nav">
+                            <div class="prev"></div>
+                            <ul>
+                                <li class="active">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                            <div class="next"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
+</html>
+

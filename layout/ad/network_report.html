@@ -1,20 +1,8 @@
 <html lang="ko">
     <head>
-        <title>ahnlab AD 슈퍼관리자</title>
+        <title>한컴 최고관리자</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--파비콘 공통:s-->
-        <link rel="shortcut icon" href="https://image.ahnlab.com/favicon/favicon.ico">
-        <link rel="icon" sizes="16x16 32x32 64x64" href="https://image.ahnlab.com/favicon//favicon.ico">
-        <link rel="icon" type="image/png" sizes="152x160" href="https://image.ahnlab.com/favicon/favicon_152.png">
-        <link rel="icon" type="image/png" sizes="144x160" href="https://image.ahnlab.com/favicon/favicon_144.png">
-        <link rel="icon" type="image/png" sizes="120x120" href="https://image.ahnlab.com/favicon/favicon_120.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="https://image.ahnlab.com/favicon/favicon_96.png">
-        <link rel="icon" type="image/png" sizes="72x72" href="https://image.ahnlab.com/favicon/favicon_72.png">
-        <link rel="icon" type="image/png" sizes="57x57" href="https://image.ahnlab.com/favicon/favicon_57.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="https://image.ahnlab.com/favicon/favicon_32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://image.ahnlab.com/favicon/favicon_16.png">
-        <!--파비콘 공통:e-->
         <link rel="stylesheet" type="text/css" href="../../../css/reset.css">
         <link rel="stylesheet" type="text/css" href="../../../css/common.css">
         <link rel="stylesheet" type="text/css" href="../../../css/lib/daterangepicker_popup.css">
@@ -53,8 +41,15 @@
                 $("#loadingBg").addClass("complete");
             });
         </script>
+        <div data-include-path="/layout/header.html"></div>
         <div id="wrap">
-            <h1 class="location">홈 > 일자별통계</h1>
+            <h1 class="location">홈 > SSP연동사별통계 > 지면별통계</h1>
+            <ul class="subMenu-list">
+                <li onclick="location.href='/layout/v2/admix_report/manage_report_media_day_admix.html'">[일자별통계]</li>
+                <li onclick="location.href='/layout/ad/network_report.html'" class="active">[지면별통계]</li>
+                <li onclick="location.href='/layout/v2/admix_report/manage_report_media_ecpm_new.html'">[연동플랫폼]</li>
+                <li onclick="location.href='/layout/ad/manage_external_match.html'">[관리]</li>
+            </ul>
             <ul class="subMenu-list">
                 <li onclick="location.href='javascript:void(0)'" class="active">[전체]</li>
                 <li onclick="location.href='javascript:void(0)'">[웹]</li>
@@ -74,87 +69,59 @@
                         </div>
                     </div>
                 </div>
-                <div class="setTypeBox">
-                    <div class="clear setType">
-                        <h4>구분</h4>
-                        <div>
-                            <input type="radio" name="platformType" id="platformType00" class="hidden" value="00" checked="checked">
-                                <label for="platformType00">전체</label>
-                            <input type="radio" name="platformType" id="platformType01" class="hidden" value="01">
-                                <label for="platformType01">하우스</label>
-                            <input type="radio" name="platformType" id="platformType02" class="hidden" value="02">
-                                <label for="platformType02">직광고</label>
-                            <input type="radio" name="platformType" id="platformType03" class="hidden" value="03">
-                                <label for="platformType03">네트워크</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="buttonBox">
-                    <button type="button" id="dateButton">검색</button>
-                </div>
-                <div class="ranges">
-                    <ul>
-                        <li data-range-key="오늘" class="active">오늘</li>
-                        <li data-range-key="어제">어제</li>
-                        <li data-range-key="1주일">1주일</li>
-                        <li data-range-key="이번달">이번달</li>
-                        <li data-range-key="전월">전월</li>
-                        <li data-range-key="6개월">6개월</li>
-                    </ul>
+                <div class="customSelect setType">
+                    <h4>연동사</h4>
+                    <select>
+                        <option value="mobonal" selected="">모비온(타게팅)</option>
+                        <option value="mobonal1">모비온(Non-타게팅)</option>
+                        <option value="">쿠팡(즐겨찾기)</option>
+                    </select>
                 </div>
                 <button type="button" class="excelDown">엑셀</button>
             </section>
             <!-- 검색 폼:e-->
-            <section class="chartBox">
-                <div class="dayChart">
-                    <ul class="chartTap">
-                        <li class="active">노출</li>
-                        <li>클릭률</li>
-                        <li>수익</li>
-                        <li>ECPM</li>
-                    </ul>
-                    <div class="chart">
-                        <!--그래프삽입--->
-                    </div>
-                </div>
-            </section>
             <section class="tableSection">
                 <div>
-                    <table>
+                    <table class="dataTable">
                         <colgroup>
+                            <col width="12%" />
+                            <col width="5%" />
                             <col width="8%" />
-                            <col width="8%" />
                             <col width="10%" />
                             <col width="10%" />
                             <col width="10%" />
                             <col width="10%" />
+                            <col width="5%" />
+                            <col width="5%" />
                             <col width="10%" />
                             <col width="10%" />
-                            <col width="14%" />
-                            <col width="10%" />
+                            <col width="5%" />
                         </colgroup>
                         <thead>
                             <tr role="row">
-                                <th>날짜</th>
-                                <th>지면수</th>
-                                <th>요청수</th>
-                                <th>노출수</th>
-                                <th>게재율</th>
-                                <th>클릭수</th>
-                                <th>클릭률</th>
-                                <th>CPC</th>
-                                <th>수익금액</th>
-                                <th>ECPM</th>
+                                <th class="sorting">지면명</th>
+                                <th class="sorting">S값</th>
+                                <th class="sorting">존아이디</th>
+                                <th class="sorting">요청수</th>
+                                <th class="sorting">요청 받은 수</th>
+                                <th class="sorting">노출수</th>
+                                <th class="sorting">클릭수</th>
+                                <th class="sorting">클릭률</th>
+                                <th class="sorting">CPC</th>
+                                <th class="sorting">수익금액</th>
+                                <th class="sorting">정산금액</th>
+                                <th class="sorting">ECPM</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr class="totalFooter bold">
-                                <td colspan="2">합계</td>
+                                <td colspan="3">합계</td>
                                 <td>999</td>
                                 <td>9999</td>
-                                <td class="PCT">9999</td>
+                                <td>9999</td>
                                 <td>9999</td>
                                 <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
                                 <td class="WON red">9999</td>
                                 <td class="WON sun">9999</td>
                                 <td class="WON green">9999</td>
@@ -162,144 +129,164 @@
                         </tfoot>
                         <tbody>
                             <tr>
-                                <td>03-17<i class="search_btn" onclick="window.open('https://ahnlabad.com/v2/mcode_report/manage_report_mcode2.php')"></i></td>
+                                <td>안랩_토스트_300*250<i class="search_btn" onclick="window.open('/layout/v2/popup/network_report_popup.html','pop','resizable=yes,width=1600,height=700,scrollbars=yes')"></i></td>
                                 <td>3</td>
+                                <td>Mjk</td>
                                 <td>999</td>
                                 <td>9999</td>
-                                <td class="PCT">9999</td>
+                                <td>9999</td>
                                 <td>9999</td>
                                 <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
                                 <td class="WON red">9999</td>
                                 <td class="WON sun">9999</td>
                                 <td class="WON green">9999</td>
                             </tr>
                             <tr>
-                                <td>03-17</td>
+                                <td>안랩_토스트_300*250</td>
                                 <td>3</td>
+                                <td>Mjk</td>
                                 <td>999</td>
                                 <td>9999</td>
-                                <td class="PCT">9999</td>
+                                <td>9999</td>
                                 <td>9999</td>
                                 <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
                                 <td class="WON red">9999</td>
                                 <td class="WON sun">9999</td>
                                 <td class="WON green">9999</td>
                             </tr>
                             <tr>
-                                <td>03-17</td>
+                                <td>안랩_토스트_300*250</td>
                                 <td>3</td>
+                                <td>Mjk</td>
                                 <td>999</td>
                                 <td>9999</td>
-                                <td class="PCT">9999</td>
+                                <td>9999</td>
                                 <td>9999</td>
                                 <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
-                                <td class="WON red">9999</td>
-                                <td class="WON sun">9999</td>
-                                <td class="WON green">9999</td>
-                            </tr>
-                            <tr>
-                                <td>03-17</td>
-                                <td>3</td>
-                                <td>999</td>
-                                <td>9999</td>
-                                <td class="PCT">9999</td>
-                                <td>9999</td>
-                                <td class="PCT blue">9999</td>
+                                <td class="WON purple">9999</td>
                                 <td class="WON red">9999</td>
                                 <td class="WON sun">9999</td>
                                 <td class="WON green">9999</td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="page-nav-box">
-                        <div class="page-nav">
-                            <div class="prev"></div>
-                            <ul>
-                                <li class="active">1</li>
-                                <li>2</li>
-                                <li>3</li>
-                            </ul>
-                            <div class="next"></div>
-                        </div>
+                </div>
+                <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
                     </div>
                 </div>
             </section>
+            <section class="tableSection"><!--쿠팡(즐겨찾기) 선택시 테이블 class에 none 사용하면 감춤-->
+                <div>
+                    <table class="dataTable">
+                        <colgroup>
+                            <col width="10%" />
+                            <col width="6%" />
+                            <col width="10%" />
+                            <col width="7%" />
+                            <col width="7%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <col width="10%" />
+                        </colgroup>
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting">지면명</th>
+                                <th class="sorting">S값</th>
+                                <th class="sorting">존아이디</th>
+                                <th class="sorting">요청수</th>
+                                <th class="sorting">요청받은수</th>
+                                <th class="sorting">설치수</th>
+                                <th class="sorting">총수량</th>
+                                <th class="sorting mt-30"><div><p>구매수량</p><p class="red">취소수량</p></div></th>
+                                <th class="sorting">총매출</th>
+                                <th class="sorting mt-30"><div><p>구매금액</p><p class="red">취소금액</p></div></th>
+                                <th class="sorting">수익금액</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="totalFooter bold">
+                                <td colspan="3">합계</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>한컴_즐겨찾기<i class="search_btn" onclick="window.open('/layout/v2/popup/network_report_1_popup.html','pop','resizable=yes,width=1600,height=700,scrollbars=yes')"></i></td>
+                                <td>3</td>
+                                <td>Mjk</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td>한컴_즐겨찾기</td>
+                                <td>3</td>
+                                <td>Mjk</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                            <tr>
+                                <td>한컴_즐겨찾기</td>
+                                <td>3</td>
+                                <td>Mjk</td>
+                                <td>999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td>9999</td>
+                                <td><p>99999</p><p class="red">-123</p></td>
+                                <td class="WON">99999</td>
+                                <td><p class="WON">99999</p><p class="WON red">-123</p></td>
+                                <td class="WON">99999</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="page-nav-box">
+                    <div class="page-nav">
+                        <div class="prev"></div>
+                        <ul>
+                            <li class="active">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer"></footer>
         </div>
-        <footer id="footer">
-            <p>Copyright(c) 2012 모비온 All rights reserved.</p>
-        </footer>
     </body>
     <audio src="" id="naver_dic_audio_controller" controls="controls" style="display: none;"></audio>
 </html>
+

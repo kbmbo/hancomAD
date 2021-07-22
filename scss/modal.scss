@@ -8,6 +8,7 @@
 #wrap.popup{
   padding:15px 20px;
   background-color: #fff;
+  top: 0;
 }
 .modal{
   display: none;
@@ -138,6 +139,7 @@
   background-color: rgba(0,0,0, .6);
   display: flex;
   align-items: center;
+  z-index: 500;
   > div{
     background-color: #fff;
     padding: 5px 30px 30px;
